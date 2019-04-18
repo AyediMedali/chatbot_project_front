@@ -19,7 +19,7 @@ class App extends Component {
         body: response,
         from: 'robot'
       }
-      console.log(msg)
+     // console.log(msg)
 
       //this.setState({messages:[msg, ...this.state.messages]})
 
@@ -33,7 +33,7 @@ class App extends Component {
         body,
         from: 'Me'
       }
-      console.log(body + " msgg")
+    //  console.log(body + " msgg")
       this.setState({messages:[message, ...this.state.messages]})
       this.socket.emit('chat request',body)
       event.target.value = ''
