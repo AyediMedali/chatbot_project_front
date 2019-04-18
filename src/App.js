@@ -38,7 +38,7 @@ render() {
 
     <BrowserRouter>
       <div>
-        {/*<Navbar/>*/}
+
         <Switch>
           <Route path='/' component={Home} exact></Route>
           <Route path='/about' component={About}></Route>
