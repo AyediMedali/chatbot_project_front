@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import socketIOClient from "socket.io-client";
+import {BrowserRouter, Route, Switch} from "react-router-dom" ; 
+
+import Navbar from './components/Navbar';
+import Home from './components/Home' ; 
+import About from './components/About';
 
 
 class App extends Component {
@@ -41,7 +46,7 @@ class App extends Component {
   }
 
 
-  render() {
+ /* render() {
     const messages = this.state.messages.map((message, index)=> {
       return <li key={index}><b>{message.from}:</b>{message.body}</li>
     })
@@ -53,8 +58,32 @@ class App extends Component {
       </div>
     );
   }
-}
+}*/
+render() {
+  return(
+    <React.Fragment>
 
+    <div id="wrapper">
+
+
+    <BrowserRouter>
+      <div>
+        <Navbar/>
+        <Switch>
+          <Route path='/' component={Home} exact></Route>
+          <Route path='/about' component={About}></Route>
+        </Switch>
+      </div>
+        
+    </BrowserRouter>
+
+</div>
+
+
+    </React.Fragment>
+  );
+};
+}
 export default App;
 
 // import React, {Component} from 'react';
