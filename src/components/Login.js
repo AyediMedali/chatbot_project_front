@@ -10,7 +10,6 @@ class Login extends React.Component {
             email: "",
             password: ""
         };
-
     }
 
     validateForm() {
@@ -26,7 +25,6 @@ class Login extends React.Component {
     handleSubmit = async event => {
         console.log(this.state.email)
         console.log(this.state.password)
-        var that = this;
         event.preventDefault();
         fetch('http://localhost:3000/login', {
             method: 'POST',
@@ -50,10 +48,7 @@ class Login extends React.Component {
             }
         }).then(function (responseBody) {
             console.log(responseBody)
-            localStorage.setItem("token", responseBody.token);
-            that.props.history.push("/");
         }).catch(function (error) {
-            localStorage.clear();
             alert('rejected');
             console.log("rejected: ", error);
         });
