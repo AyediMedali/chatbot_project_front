@@ -51,23 +51,22 @@ class App extends Component {
 
     handleLogout = event => {
         localStorage.clear();
+        window.location.reload();
     }
 
     render() {
         if (localStorage.getItem('token'))
             return (
+
                 <React.Fragment>
-
+                    <Navbar/>
                     <div id="wrapper">
-
 
                         <BrowserRouter>
                             <div>
-                                <Navbar/>
                                 <Switch>
                                     <Route exact path='/' component={Home} exact></Route>
                                     <Route path='/about' component={About}></Route>
-                                    <button onClick={this.handleLogout}>Log out</button>
                                     <Route component={Notfound}/>
                                 </Switch>
                             </div>
@@ -80,14 +79,13 @@ class App extends Component {
                 </React.Fragment>
             );
         else
-            return (<React.Fragment>
+            return (
+                <React.Fragment>
 
                     <div id="wrapper">
-
-
+                        <Navbar/>
                         <BrowserRouter>
                             <div>
-                                <Navbar/>
                                 <Switch>
                                     <Route exact path='/' component={Home} exact></Route>
                                     <Route path='/about' component={About}></Route>

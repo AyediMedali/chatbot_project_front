@@ -28,7 +28,7 @@ class Login extends React.Component {
         console.log(this.state.password)
         var that = this;
         event.preventDefault();
-        fetch('http://localhost:3000/login', {
+        fetch('http://localhost:4000/login', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -52,6 +52,7 @@ class Login extends React.Component {
             console.log(responseBody)
             localStorage.setItem("token", responseBody.token);
             that.props.history.push("/");
+            window.location.reload();
         }).catch(function (error) {
             localStorage.clear();
             alert('rejected');
@@ -61,6 +62,7 @@ class Login extends React.Component {
     }
 
     render() {
+        if (!localStorage.getItem("token"))
         return (
             <div className="Login">
                 <form onSubmit={this.handleSubmit}>
@@ -92,6 +94,8 @@ class Login extends React.Component {
                 </form>
             </div>
         );
+        else
+            return (<div><h3>You are already connected</h3></div>)
     }
 }
 
