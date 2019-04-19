@@ -23,14 +23,19 @@ class Login extends React.Component {
     }
 
     handleSubmit = async event => {
+        console.log(this.state.email)
+        console.log(this.state.password)
         event.preventDefault();
         fetch('http://localhost:3000/login', {
-            method: 'post',
-            headers: {'Content-Type': 'application/json'},
-            body: {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
                 email: this.state.email,
                 password: this.state.password
-            }
+            })
         }).then(function (response) {
             if (response.ok) {
                 alert('ok');
@@ -38,14 +43,14 @@ class Login extends React.Component {
                 return response.json();
             }
             else {
-                alert('error post failed');
-                throw new Error("Post Failed")
+                alert('Unauthorized or wrong passwordd');
+                //throw new Error("Unauthorized or wrong password")
             }
         }).then(function (responseBody) {
-            console.log(responseBody.uri)
+            console.log(responseBody)
         }).catch(function (error) {
-            alert('request failed');
-            console.log("Request failed", error);
+            alert('rejected');
+            console.log("rejected: ", error);
         });
 
     }
