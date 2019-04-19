@@ -13,49 +13,10 @@ import Notfound from './components/notfound'
 
 
 class App extends Component {
-
-
-
- /* render() {
-    const messages = this.state.messages.map((message, index)=> {
-      return <li key={index}><b>{message.from}:</b>{message.body}</li>
-    })
-    return (
-      <div className="App">
-        <h1>Hello world</h1>
-        <input type="text" placeholder='enter a message' onKeyUp={this.handleSubmit}/>
-        {messages}
-      </div>
-    );
-  }
-}*/
-render() {
-  return(
-    <React.Fragment>
-
-    <div id="wrapper">
-
-
-    <BrowserRouter>
-      <div>
-
-        <Switch>
-          <Route path='/' component={Home} exact></Route>
-          <Route path='/about' component={About}></Route>
-        </Switch>
-      </div>
-        
-    </BrowserRouter>
-
-</div>
-
-
-    </React.Fragment>
-  );
-};
     constructor(props) {
         super(props)
         this.state = {messages: []}
+        this.handleLogout.bind(this);
     }
 
     componentDidMount() {
@@ -88,59 +49,63 @@ render() {
         }
     }
 
+    handleLogout = event => {
+        localStorage.clear();
+    }
 
-    /* render() {
-       const messages = this.state.messages.map((message, index)=> {
-         return <li key={index}><b>{message.from}:</b>{message.body}</li>
-       })
-       return (
-         <div className="App">
-           <h1>Hello world</h1>
-           <input type="text" placeholder='enter a message' onKeyUp={this.handleSubmit}/>
-           {messages}
-         </div>
-       );
-     }
-   }*/
     render() {
-        return (
-            <React.Fragment>
+        if (localStorage.getItem('token'))
+            return (
+                <React.Fragment>
 
-                <div id="wrapper">
-
-
-                    <BrowserRouter>
-                        <div>
-                            <Navbar/>
-                            <Switch>
-                                <Route exact path='/' component={Home} exact></Route>
-                                <Route path='/about' component={About}></Route>
-                                <Route path="/login" component={Login}/>
-                                <Route component={Notfound}/>
-                            </Switch>
-                        </div>
-
-                    </BrowserRouter>
-
-                </div>
+                    <div id="wrapper">
 
 
-            </React.Fragment>
-        );
+                        <BrowserRouter>
+                            <div>
+                                <Navbar/>
+                                <Switch>
+                                    <Route exact path='/' component={Home} exact></Route>
+                                    <Route path='/about' component={About}></Route>
+                                    <button onClick={this.handleLogout}>Log out</button>
+                                    <Route component={Notfound}/>
+                                </Switch>
+                            </div>
+
+                        </BrowserRouter>
+
+                    </div>
+
+
+                </React.Fragment>
+            );
+        else
+            return (<React.Fragment>
+
+                    <div id="wrapper">
+
+
+                        <BrowserRouter>
+                            <div>
+                                <Navbar/>
+                                <Switch>
+                                    <Route exact path='/' component={Home} exact></Route>
+                                    <Route path='/about' component={About}></Route>
+                                    <Route path="/login" component={Login}/>
+                                    <Route component={Notfound}/>
+                                </Switch>
+                            </div>
+
+                        </BrowserRouter>
+
+                    </div>
+
+
+                </React.Fragment>
+
+            );
     };
 }
 
 export default App;
 
-// import React, {Component} from 'react';
-// import Layout from './components/Layout'
-//
-// class App extends Component {
-//   render() {
-//     return (
-//           <Layout title={"chat"}/>
-//     );
-//   }
-// }
-//
-// export default App;
