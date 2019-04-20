@@ -9,6 +9,7 @@ import Home from './components/Home' ;
 import About from './components/About';
 
 import Login from './components/Login'
+import Logout from './components/Logout'
 import Notfound from './components/notfound'
 
 
@@ -29,64 +30,31 @@ class App extends Component {
     );
   }
 }*/
-render() {
-  return(
-    <React.Fragment>
-
-    <div id="wrapper">
-
-
-    <BrowserRouter>
-      <div>
-
-        <Switch>
-          <Route path='/' component={Home} exact></Route>
-          <Route path='/about' component={About}></Route>
-        </Switch>
-      </div>
-        
-    </BrowserRouter>
-
-</div>
-
-
-    </React.Fragment>
-  );
-};
-    constructor(props) {
-        super(props)
-        this.state = {messages: []}
-    }
-
-    componentDidMount() {
-        this.socket = socketIOClient('http://localhost:3000/');
-        this.socket.on('ai response', function (response) {
-            console.log(response)
-
-            const msg = {
-                body: response,
-                from: 'robot'
-            }
-            // console.log(msg)
-
-            //this.setState({messages:[msg, ...this.state.messages]})
-
-        })
-    }
-
-    handleSubmit = event => {
-        const body = event.target.value
-        if (event.keyCode === 13 && body) {
-            const message = {
-                body,
-                from: 'Me'
-            }
-            //  console.log(body + " msgg")
-            this.setState({messages: [message, ...this.state.messages]})
-            this.socket.emit('chat request', body)
-            event.target.value = ''
-        }
-    }
+// render() {
+//   return(
+//     <React.Fragment>
+//
+//     <div id="wrapper">
+//
+//
+//     <BrowserRouter>
+//       <div>
+//
+//         <Switch>
+//           <Route path='/' component={Home} exact></Route>
+//           <Route path='/about' component={About}></Route>
+//
+//         </Switch>
+//       </div>
+//
+//     </BrowserRouter>
+//
+// </div>
+//
+//
+//     </React.Fragment>
+//   );
+// };
 
 
     /* render() {
@@ -116,6 +84,7 @@ render() {
                                 <Route exact path='/' component={Home} exact></Route>
                                 <Route path='/about' component={About}></Route>
                                 <Route path="/login" component={Login}/>
+                                <Route path="/logout" component={Logout}/>
                                 <Route component={Notfound}/>
                             </Switch>
                         </div>
