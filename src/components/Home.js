@@ -48,7 +48,7 @@ class Home extends Component {
     const messages = this.state.messages.map((message, index)=> {
 //      return <li key={index}><b>{message.from}:</b>{message.body}</li>
 
-      if (message.from =='Me')
+      if (message.from ==='Me')
       {
 
         return <div className="row message-body">
@@ -63,7 +63,7 @@ class Home extends Component {
           </div>
         </div>
       }
-      else if(message.from =='robot')
+      else if(message.from ==='robot')
       {
 
         return <div className="row message-body">
@@ -89,7 +89,7 @@ class Home extends Component {
           {/*<div className="container">*/}
             {/*<input type="text" placeholder='enter a message' onKeyUp={this.handleSubmit}/>*/}
             {/*{messages}*/}
-            <div className="row">
+            <div className="row ">
               <div className="col-sm-4 conversation app-one">
                 <div className="heading">
                   <div className="col-sm-6 col-md-3 col-xs-4 heading-avatar">
