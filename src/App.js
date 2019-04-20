@@ -77,6 +77,12 @@ class App extends Component {
                 <div id="wrapper">
 
 
+                    <button >
+                        <a href="/logout">Logout</a>
+                    </button>
+                    <button >
+                        <a href="/login">Login </a>
+                    </button>
                     <BrowserRouter>
                         <div>
                             <Navbar/>
