@@ -83,7 +83,7 @@ class Home extends Component {
 
     })
     return (
-        <div id="main" className="ctnr">
+        <div >
 
 
           {/*<div className="container">*/}
