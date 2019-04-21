@@ -7,6 +7,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom" ;
 import Navbar from './components/Navbar';
 import Home from './components/Home' ;
 import About from './components/About';
+import Template from './components/Template';
 
 import Login from './components/Login'
 import Logout from './components/Logout'
@@ -90,7 +91,7 @@ class App extends Component {
 
                     <BrowserRouter>
                         <div>
-                            {/*<Navbar/>*/}
+                            <Template/>
                             <Switch>
                                 <Route exact path='/' component={Home} exact></Route>
                                 <Route path='/about' component={About}></Route>
