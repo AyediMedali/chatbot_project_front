@@ -2,7 +2,96 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom'
 
 class Navbar extends Component {
+    constructor(props) {
+        super(props);
+        console.log(localStorage.getItem('user') + " constructor")
+        console.log(localStorage.getItem('token') + " token constructor")
+        this.state = {isLoggedIn: false};
+    }
+
+    componentDidMount() {
+        if(localStorage.getItem('user') == '' || localStorage.getItem('user') == null)
+        {
+            this.setState({isLoggedIn:false})
+        }
+        else {
+            this.setState({isLoggedIn:true})
+        }
+    }
+
+
     render() {
+
+        const isLoggedIn = this.state.isLoggedIn;
+        const divStyle = {
+            top: '190px',
+
+        };
+        let button;
+
+        if (isLoggedIn) {
+            button =
+
+
+                <div className="fxb-col fxb fxb-end-x fxb-center-y fxb-basis-auto fxb-sm-half site-header-col-right site-header-main-right">
+                    <div className="fxb fxb-row fxb-row-col fxb-center-y">
+                        <div className="fxb-col fxb fxb-end-x fxb-center-y fxb-basis-auto fxb-sm-half site-header-main-right-top">
+                            <a href="/logout" id="ctabutton" className="sh-component ctabutton kl-cta-ribbon " target="_self"><strong>LOGOUT</strong>INTRANET<svg version="1.1" className="trisvg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" preserveAspectRatio="none" width="14px" height="5px" viewBox="0 0 14.017 5.006" enableBackground="new 0 0 14.017 5.006" xmlSpace="preserve"><path fillRule="evenodd" clipRule="evenodd" d="M14.016,0L7.008,5.006L0,0H14.016z" /></svg></a>                                  </div>
+                    </div>
+                </div>
+
+
+
+                // <div style={divStyle}
+                //      className='fxb-col fxb fxb-end-x fxb-center-y fxb-basis-auto fxb-sm-half site-header-col-right site-header-main-right'>
+                //     <div className="fxb fxb-row fxb-row-col fxb-center-y">
+                //
+                //         <div
+                //             className='fxb-col fxb fxb-end-x fxb-center-y fxb-basis-auto fxb-sm-half site-header-main-right-top'>
+                //             <a href="/logout" id="ctabutton"
+                //                className="sh-component ctabutton kl-cta-ribbon " target="_self"><strong>LOGOUT</strong>INTRANET
+                //
+                //             </a>
+                //         </div>
+                //     </div>
+                // </div>
+
+
+            {/*<button >*/}
+            {/*<a href="/logout">Logout </a>*/}
+            {/*</button>*/}
+        } else {
+            button =
+
+
+                <div className="fxb-col fxb fxb-end-x fxb-center-y fxb-basis-auto fxb-sm-half site-header-col-right site-header-main-right">
+                    <div className="fxb fxb-row fxb-row-col fxb-center-y">
+                        <div className="fxb-col fxb fxb-end-x fxb-center-y fxb-basis-auto fxb-sm-half site-header-main-right-top">
+                            <a href="/login" id="ctabutton" className="sh-component ctabutton kl-cta-ribbon " target="_self"><strong>LOGIN</strong>INTRANET<svg version="1.1" className="trisvg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" preserveAspectRatio="none" width="14px" height="5px" viewBox="0 0 14.017 5.006" enableBackground="new 0 0 14.017 5.006" xmlSpace="preserve"><path fillRule="evenodd" clipRule="evenodd" d="M14.016,0L7.008,5.006L0,0H14.016z" /></svg></a>                                  </div>
+                    </div>
+                </div>
+
+                {/*<div*/}
+                    {/*className='fxb-col fxb fxb-end-x fxb-center-y fxb-basis-auto fxb-sm-half site-header-col-right site-header-main-right'>*/}
+                    {/*<div className="fxb fxb-row fxb-row-col fxb-center-y">*/}
+
+                        {/*<div*/}
+                            {/*className='fxb-col fxb fxb-end-x fxb-center-y fxb-basis-auto fxb-sm-half site-header-main-right-top'>*/}
+                            {/*<a href="/login" id="ctabutton"*/}
+                               {/*className="sh-component ctabutton kl-cta-ribbon " target="_self"><strong>LOGIN</strong>INTRANET*/}
+
+                            {/*</a>*/}
+                        {/*</div>*/}
+                    {/*</div>*/}
+                {/*</div>*/}
+
+
+            {/*<button>*/}
+            {/*<a href="/login">Login </a>*/}
+            {/*</button>*/}
+        }
+
+
         return(
             <React.Fragment>
 <header id="header" className="site-header style7 cta_button  header--follow   sticky-resize headerstyle--default site-header--absolute nav-th--light sh--light">
@@ -194,12 +283,13 @@ class Navbar extends Component {
                     </ul></div>      </div>
                 {/* end main_menu */}
               </div>
-              <div className="fxb-col fxb fxb-end-x fxb-center-y fxb-basis-auto fxb-sm-half site-header-col-right site-header-main-right">
-                <div className="fxb fxb-row fxb-row-col fxb-center-y">
-                  <div className="fxb-col fxb fxb-end-x fxb-center-y fxb-basis-auto fxb-sm-half site-header-main-right-top">
-                    <a href="http://esprit.tn/espace-intranet/" id="ctabutton" className="sh-component ctabutton kl-cta-ribbon " target="_self"><strong>LOGIN</strong>INTRANET<svg version="1.1" className="trisvg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" preserveAspectRatio="none" width="14px" height="5px" viewBox="0 0 14.017 5.006" enableBackground="new 0 0 14.017 5.006" xmlSpace="preserve"><path fillRule="evenodd" clipRule="evenodd" d="M14.016,0L7.008,5.006L0,0H14.016z" /></svg></a>                                  </div>
-                </div>
-              </div>
+                {button}
+                {/*<div className="fxb-col fxb fxb-end-x fxb-center-y fxb-basis-auto fxb-sm-half site-header-col-right site-header-main-right">*/}
+                    {/*<div className="fxb fxb-row fxb-row-col fxb-center-y">*/}
+                        {/*<div className="fxb-col fxb fxb-end-x fxb-center-y fxb-basis-auto fxb-sm-half site-header-main-right-top">*/}
+                            {/*<a href="http://esprit.tn/espace-intranet/" id="ctabutton" className="sh-component ctabutton kl-cta-ribbon " target="_self"><strong>LOGIN</strong>INTRANET<svg version="1.1" className="trisvg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" preserveAspectRatio="none" width="14px" height="5px" viewBox="0 0 14.017 5.006" enableBackground="new 0 0 14.017 5.006" xmlSpace="preserve"><path fillRule="evenodd" clipRule="evenodd" d="M14.016,0L7.008,5.006L0,0H14.016z" /></svg></a>                                  </div>*/}
+                    {/*</div>*/}
+                {/*</div>*/}
             </div>{/* /.site-header-main */}
           </div>
         </div>
