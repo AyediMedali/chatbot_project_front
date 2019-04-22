@@ -5,18 +5,26 @@ import './css/style.css';
 class Home extends Component {
   constructor(props){
     super(props)
-    this.state = {messages : []}
+    this.state = {messages : [],
+                  page: String}
+
+
   }
   componentDidMount() {
     this.socket = socketIOClient('http://localhost:3000/');
     this.socket.on('ai response', function(response) {
+      console.log("**************")
+
       console.log(response)
+            console.log("**************")
+      this.setState({page:response.page})
 
       const msg = {
         body: response,
         from: 'robot'
       }
       console.log(msg)
+      console.log(msg.body.page)
       // this.state = {messages : []}
       console.log(this.state)
       //  console.log(this.state.messages)
@@ -45,6 +53,7 @@ class Home extends Component {
 
 
   render() {
+    var {page} = this.state
     const messages = this.state.messages.map((message, index)=> {
 //      return <li key={index}><b>{message.from}:</b>{message.body}</li>
 
@@ -55,7 +64,8 @@ class Home extends Component {
           <div className="col-sm-12 message-main-receiver pull-right">
             <div className="sender">
               <div class="message-text">
-                {message.body}
+              { message.body.msg ? message.body.msg : message.body }
+                
               </div>
               <span className="message-time pull-right">
           </span>
@@ -70,7 +80,7 @@ class Home extends Component {
           <div className="col-sm-12 message-main-receiver">
             <div className="receiver">
               <div class="message-text">
-                {message.body}
+              { message.body.msg ? message.body.msg : message.body }
               </div>
               <span className="message-time pull-left">
           </span>
@@ -82,6 +92,7 @@ class Home extends Component {
 
 
     })
+    
     return (
         <div >
 
@@ -124,7 +135,12 @@ class Home extends Component {
                 </div>
                 </div>
 
+                <div className="col"> { this.state.page}
+
+                 {page}
+                  </div>
               </div>
+
             </div>
           // </div>
 
