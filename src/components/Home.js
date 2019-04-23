@@ -6,32 +6,33 @@ class Home extends Component {
   constructor(props){
     super(props)
     this.state = {messages : [],
-                  page: String}
+                  page: ""}
 
 
   }
   componentDidMount() {
     this.socket = socketIOClient('http://localhost:3000/');
     this.socket.on('ai response', function(response) {
-      console.log("**************")
+      // console.log("response")
 
-      console.log(response)
-            console.log("**************")
-      this.setState({page:response.page})
+      // console.log(response)
+      // this.setState({page:response.page})
 
       const msg = {
         body: response,
         from: 'robot'
       }
-      console.log(msg)
-      console.log(msg.body.page)
+      console.log(JSON.stringify(msg) + " message")
+      console.log(msg.body.page + " page name")
       // this.state = {messages : []}
-      console.log(this.state)
+      // console.log(this.state)
       //  console.log(this.state.messages)
 
+      if(msg.body!="")
+        this.setState({messages:[...this.state.messages, msg ]})
 
-      this.setState({messages:[...this.state.messages, msg ]})
-      console.log(this.state.messages)
+
+      // console.log(this.state.messages)
 
     }.bind(this))
   }
