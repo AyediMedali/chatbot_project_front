@@ -29,7 +29,11 @@ class Home extends Component {
       //  console.log(this.state.messages)
 
       if(msg.body!="")
+      {
         this.setState({messages:[...this.state.messages, msg ]})
+        this.setState({page:response.page})
+      }
+
 
 
       // console.log(this.state.messages)
