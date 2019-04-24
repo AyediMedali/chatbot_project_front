@@ -155,71 +155,85 @@ class Home extends Component {
                         </div>
 
                     </section>
+
+                    <div className="itemComments kl-blog-item-comments">
+                        <a href="http://esprit.tn/en-video-le-bal-des-projets-20162017-ecole-ingenieur-tunisie/"
+                           className="kl-blog-item-comments-link kl-font-alt">published : 2018/2019</a>
+                    </div>
+                </div>
+            );
+
+        }
+        else if(this.state.page == 'InternalRegulationsPage'){
+
+            return (
+                <div>
+
                     <section className="zn_section eluideed4062d     section--no " id="eluideed4062d">
 
 
-                        <div className="zn_section_size container">
-                            <div className="row zn_columns_container zn_content " data-droplevel="1">
+                    <div className="zn_section_size container">
+                    <div className="row zn_columns_container zn_content " data-droplevel="1">
 
 
-                                {/*<div className="eluid259a07e1   col-md-12 col-sm-12   zn_sortable_content zn_content "*/}
-                                {/*data-droplevel="2">*/}
-                                {/*<div*/}
-                                {/*className="kl-title-block clearfix tbk--text-light tbk--left text-left tbk-symbol--  tbk-icon-pos--after-title eluid87ff3b20 ">*/}
-                                {/*<h3 className="tbk__title ">INTERNAL REGULATIONS*/}
+                    {/*<div className="eluid259a07e1   col-md-12 col-sm-12   zn_sortable_content zn_content "*/}
+                    {/*data-droplevel="2">*/}
+                    {/*<div*/}
+                    {/*className="kl-title-block clearfix tbk--text-light tbk--left text-left tbk-symbol--  tbk-icon-pos--after-title eluid87ff3b20 ">*/}
+                    {/*<h3 className="tbk__title ">INTERNAL REGULATIONS*/}
 
-                                {/*</h3></div>*/}
-                                {/*</div>*/}
+                    {/*</h3></div>*/}
+                    {/*</div>*/}
 
-                                <div className="eluida6ec04cb   col-md-8 col-sm-8   zn_sortable_content zn_content "
-                                     data-droplevel="2">
-                                    <div
-                                        className="kl-title-block clearfix tbk--text-light tbk--center text-center tbk-symbol--  tbk-icon-pos--after-title eluid287cfbca ">
-                                        <h3 className="tbk__title "> INTERNAL REGULATIONS
-                                        </h3></div>
-                                </div>
+                    <div className="eluida6ec04cb   col-md-8 col-sm-8   zn_sortable_content zn_content "
+                    data-droplevel="2">
+                    <div
+                    className="kl-title-block clearfix tbk--text-light tbk--center text-center tbk-symbol--  tbk-icon-pos--after-title eluid287cfbca ">
+                    <h3 className="tbk__title "> INTERNAL REGULATIONS
+                    </h3></div>
+                    </div>
 
-                            </div>
-                        </div>
+                    </div>
+                    </div>
 
                     </section>
                     <section className="zn_section eluiddfd543cc     section--no " id="eluiddfd543cc">
 
 
-                        <div className="zn_section_size container">
-                            <div className="row zn_columns_container zn_content " data-droplevel="1">
+                    <div className="zn_section_size container">
+                    <div className="row zn_columns_container zn_content " data-droplevel="1">
 
 
-                                <div className="eluidefbbfb5f   col-md-4 col-sm-4   zn_sortable_content zn_content "
-                                     data-droplevel="2">
-                                    <div
-                                        className="callout-banner clearfix eluid7cea469a  calloutbanner--light element-scheme--light">
-                                        <div className="row">
-                                            <div className="col-sm-10"><h3
-                                                className="m_title m_title_ext text-custom callout-banner-title">DURING
-                                                THE
-                                                <br/>
-                                                CONDUCT
-                                                TESTS</h3></div>
-                                            <div className="col-sm-2"><a
-                                                href="http://esprit.tn/wp-content/uploads/2018/05/Réglement_etud-.pdf"
-                                                data-size="" data-position="top-left" data-align="right"
-                                                className="circlehover with-symbol kl-main-bgcolor kl-main-bgcolor-before style1"
-                                                target="_blank"><span
-                                                className="text circlehover-text u-trans-all-2s">Download</span><span
-                                                className="symbol circlehover-symbol u-trans-all-2s"><img
-                                                className="circlehover-symbol-img"
-                                                src="http://esprit.tn/wp-content/uploads/2016/04/favicon-1.png" alt=""
-                                                title=""/></span>
-                                                <div className="triangle circlehover-symbol-trg"><span
-                                                    className="play-icon"></span></div>
-                                            </a></div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div className="eluidefbbfb5f   col-md-4 col-sm-4   zn_sortable_content zn_content "
+                    data-droplevel="2">
+                    <div
+                    className="callout-banner clearfix eluid7cea469a  calloutbanner--light element-scheme--light">
+                    <div className="row">
+                    <div className="col-sm-10"><h3
+                    className="m_title m_title_ext text-custom callout-banner-title">DURING
+                    THE
+                    <br/>
+                    CONDUCT
+                    TESTS</h3></div>
+                    <div className="col-sm-2"><a
+                    href="http://esprit.tn/wp-content/uploads/2018/05/Réglement_etud-.pdf"
+                    data-size="" data-position="top-left" data-align="right"
+                    className="circlehover with-symbol kl-main-bgcolor kl-main-bgcolor-before style1"
+                    target="_blank"><span
+                    className="text circlehover-text u-trans-all-2s">Download</span><span
+                    className="symbol circlehover-symbol u-trans-all-2s"><img
+                    className="circlehover-symbol-img"
+                    src="http://esprit.tn/wp-content/uploads/2016/04/favicon-1.png" alt=""
+                    title=""/></span>
+                    <div className="triangle circlehover-symbol-trg"><span
+                    className="play-icon"></span></div>
+                    </a></div>
+                    </div>
+                    </div>
+                    </div>
 
-                            </div>
-                        </div>
+                    </div>
+                    </div>
 
                     </section>
                     <div className="itemComments kl-blog-item-comments">
@@ -229,9 +243,11 @@ class Home extends Component {
                 </div>
             );
 
-        } else if (this.state.page == 'PfePage') {
+
+        }
+        else if (this.state.page == 'PfePage') {
             return (
-                <div>
+                <div >
                     <section className="zn_section eluid906c0683     section--no " id="eluid906c0683">
 
 
@@ -239,7 +255,7 @@ class Home extends Component {
                             <div className="row zn_columns_container zn_content " data-droplevel="1">
 
 
-                                <div className="eluidc861bedf   col-md-12 col-sm-12   zn_sortable_content zn_content "
+                                <div className="eluidc861bedf   col-md-8 col-sm-   zn_sortable_content zn_content "
                                      data-droplevel="2">
                                     <div
                                         className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--line  tbk-icon-pos--after-title eluid68509d28 ">
@@ -305,9 +321,9 @@ class Home extends Component {
                             <div className="row zn_columns_container zn_content " data-droplevel="1">
 
 
-                                <div className="eluid804a12d4   col-md-2 col-sm-2   zn_sortable_content zn_content "
-                                     data-droplevel="2">
-                                </div>
+                                {/*<div className="eluid804a12d4   col-md-2 col-sm-2   zn_sortable_content zn_content "*/}
+                                     {/*data-droplevel="2">*/}
+                                {/*</div>*/}
 
                                 <div className="eluidea8dc082   col-md-8 col-sm-8   zn_sortable_content zn_content "
                                      data-droplevel="2">
@@ -396,6 +412,7 @@ class Home extends Component {
                         </div>
 
                     </section>
+
                     <section className="zn_section eluidb6b46771     section--no " id="eluidb6b46771">
 
 
@@ -403,7 +420,7 @@ class Home extends Component {
                             <div className="row zn_columns_container zn_content " data-droplevel="1">
 
 
-                                <div className="eluid303af9d8   col-md-12 col-sm-12   zn_sortable_content zn_content "
+                                <div className="eluid303af9d8   col-md-8 col-sm-8   zn_sortable_content zn_content "
                                      data-droplevel="2">
                                     <div
                                         className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--border  tbk-icon-pos--after-title eluidc87c1f73 ">
@@ -428,7 +445,7 @@ class Home extends Component {
                                     </div>
                                 </div>
 
-                                <div className="eluid4d4ed940   col-md-8 col-sm-8   zn_sortable_content zn_content "
+                                <div className="eluid4d4ed940   col-md-5 col-sm-5   zn_sortable_content zn_content "
                                      data-droplevel="2">
                                     <div className="zn_text_box eluid29ccedf8  zn_text_box-light element-scheme--light">
                                         <p>But often companies send an email to the Director of Internships in order to
@@ -447,7 +464,8 @@ class Home extends Component {
                                     </div>
                                 </div>
 
-                                <div className="eluid94ac302b   col-md-4 col-sm-4   zn_sortable_content zn_content "
+
+                                <div className="eluid94ac302b   col-md-3 col-sm-3   zn_sortable_content zn_content "
                                      data-droplevel="2">
                                     <div
                                         className="team_member team-member u-trans-all-2s eluid7d3ae0ee  teambox--light element-scheme--light teambox-style--hover">
@@ -490,6 +508,27 @@ class Home extends Component {
                 </div>
             );
         }
+
+        else if(this.state.page == 'SkillsPage')
+        {
+            return (
+                <div>
+                    <h2>Your skills are..</h2>
+                </div>
+            );
+        }
+
+          else if(this.state.page == "twinPage") {
+            return (
+              <div className="eluid89cc2067   col-sm-8    zn_sortable_content zn_content " data-droplevel={2}>
+              <div className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--line_border  tbk-icon-pos--after-title eluide93b096e "><h3 className="tbk__title ">TWIN BRANCH (Web and Internet Technologies) </h3><span className="tbk__symbol "><span /></span><div className="tbk__text">
+                </div></div>
+              <div className="adbox video eluid56e1df16 "><img className="adbox-img" src="http://41.226.11.246/wp-content/uploads/2016/07/TWIN.jpg" alt title /><div className="video_trigger_wrapper"><div className="adbox_container"><a className="playVideo" data-lightbox="iframe" href="https://www.youtube.com/watch?v=mbHybO2G1T0" /><h5 className="adbox-title kl-font-alt">TWIN : Technologies du Web et de l’INternet </h5></div></div></div>			</div>
+            
+               
+            );
+          }
+
     }
 
     render() {
