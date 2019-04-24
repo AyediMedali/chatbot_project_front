@@ -155,21 +155,9 @@ class Navbar extends Component {
                   <div className="zn-res-menuwrapper">
                     <a href="#" className="zn-res-trigger zn-header-icon" />
                   </div>{/* end responsive menu */}
-                      <div id="main-menu" className="main-nav mainnav--active-bg mainnav--pointer-dash nav-mm--light zn_mega_wrapper "><ul id="menu-menuprincipalesprit" className="main-menu main-menu-nav zn_mega_menu "><li id="menu-item-1894" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1894  main-menu-item-top  menu-item-even menu-item-depth-0"><a href="#" className=" main-menu-link main-menu-link-top">CHATBOT</a>
-                        <ul className="sub-menu clearfix">
-                          <li id="menu-item-1895" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1895  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/mot-du-pdg/" className=" main-menu-link main-menu-link-sub">Mot du Président</a></li>
-                          <li id="menu-item-1897" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1897  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/valeurs-de-lecole/" className=" main-menu-link main-menu-link-sub">Valeurs de l’école</a></li>
-                          <li id="menu-item-1898" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1898  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/les-plus-desprit/" className=" main-menu-link main-menu-link-sub">Les plus d’ESPRIT</a></li>
-                          <li id="menu-item-2038" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2038  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="#" className=" main-menu-link main-menu-link-sub">Gouvernance</a>
-                            <ul className="sub-menu clearfix">
-                              <li id="menu-item-1896" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1896  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/gouvernance/" className=" main-menu-link main-menu-link-sub">Gouvernance stratégique</a></li>
-                              <li id="menu-item-1900" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1900  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/services-de-lecole/" className=" main-menu-link main-menu-link-sub">Services de l’école</a></li>
-                            </ul>
-                          </li>
-                          <li id="menu-item-6910" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-6910  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/qualite-et-amelioration-continue/" className=" main-menu-link main-menu-link-sub">Politique Qualité</a></li>
-                          <li id="menu-item-5918" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-5918  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/partenariats-esprit/" className=" main-menu-link main-menu-link-sub">Partenariats</a></li>
-                          <li id="menu-item-4726" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-4726  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/brochures-et-logos/" className=" main-menu-link main-menu-link-sub">Salle de Presse</a></li>
-                        </ul>
+                      <div id="main-menu" className="main-nav mainnav--active-bg mainnav--pointer-dash nav-mm--light zn_mega_wrapper "><ul id="menu-menuprincipalesprit" className="main-menu main-menu-nav zn_mega_menu "><li id="menu-item-1894" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1894  main-menu-item-top  menu-item-even menu-item-depth-0">
+                          <NavLink to={'/'}className=" main-menu-link main-menu-link-top">CHATBOT</NavLink>
+
                       </li>
                       <li id="menu-item-1902" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1902  main-menu-item-top  menu-item-even menu-item-depth-0"><a href="#" className=" main-menu-link main-menu-link-top">ADMISSION</a>
                         <ul className="sub-menu clearfix">

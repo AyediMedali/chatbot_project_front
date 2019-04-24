@@ -10,7 +10,8 @@ import About from './components/About';
 
 import Login from './components/Login'
 import Logout from './components/Logout'
-import Exams_InternalRegulations from './components/Exams_InternalRergulations'
+import Exams from './components/Exams'
+import InternalRegulations from './components/Internal_Regulations'
 import Internships from './components/Internships'
 
 import Notfound from './components/notfound'
@@ -51,8 +52,8 @@ class App extends Component {
                                 <Route path="/login" component={Login}/>
                                 <Route path="/internships" component={Internships}/>
                                 <Route path="/pfe" component={Internships}/>
-                                <Route path="/exams" component={Exams_InternalRegulations}/>
-                                <Route path="/internal_regulations" component={Exams_InternalRegulations}/>
+                                <Route path="/exams" component={Exams}/>
+                                <Route path="/internal_regulations" component={InternalRegulations}/>
                                 <Route path="/login" component={Login}/>
                                 <Route path="/logout" component={Logout}/>
                                 <Route path="/Restaurant_and_prices" component={Restaurant}/>
