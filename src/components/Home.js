@@ -62,7 +62,12 @@ class Home extends Component {
     according_to_context() {
 
 
-        if (this.state.page == '' || this.state.page == undefined) return <h2>Welcome to ESPRIT Chatbot</h2>
+        if (this.state.page == '' || this.state.page == undefined){
+            if (localStorage.getItem('token') !== '')
+                return <h2>Welcome to ESPRIT Chatbot, {localStorage.getItem('firstname')}</h2>
+            return <h2>Welcome to ESPRIT Chatbot</h2> }
+
+
         else if (this.state.page == 'ExamPage') {
             return (
                 <div>
