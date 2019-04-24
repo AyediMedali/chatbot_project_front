@@ -224,9 +224,10 @@ class Home extends Component {
                 </div>
             );
 
-        } else if (this.state.page == 'PfePage') {
+        }
+        else if (this.state.page == 'PfePage') {
             return (
-                <div>
+                <div >
                     <section className="zn_section eluid906c0683     section--no " id="eluid906c0683">
 
 
@@ -234,7 +235,7 @@ class Home extends Component {
                             <div className="row zn_columns_container zn_content " data-droplevel="1">
 
 
-                                <div className="eluidc861bedf   col-md-12 col-sm-12   zn_sortable_content zn_content "
+                                <div className="eluidc861bedf   col-md-8 col-sm-   zn_sortable_content zn_content "
                                      data-droplevel="2">
                                     <div
                                         className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--line  tbk-icon-pos--after-title eluid68509d28 ">
@@ -300,9 +301,9 @@ class Home extends Component {
                             <div className="row zn_columns_container zn_content " data-droplevel="1">
 
 
-                                <div className="eluid804a12d4   col-md-2 col-sm-2   zn_sortable_content zn_content "
-                                     data-droplevel="2">
-                                </div>
+                                {/*<div className="eluid804a12d4   col-md-2 col-sm-2   zn_sortable_content zn_content "*/}
+                                     {/*data-droplevel="2">*/}
+                                {/*</div>*/}
 
                                 <div className="eluidea8dc082   col-md-8 col-sm-8   zn_sortable_content zn_content "
                                      data-droplevel="2">
@@ -391,6 +392,7 @@ class Home extends Component {
                         </div>
 
                     </section>
+
                     <section className="zn_section eluidb6b46771     section--no " id="eluidb6b46771">
 
 
@@ -398,7 +400,7 @@ class Home extends Component {
                             <div className="row zn_columns_container zn_content " data-droplevel="1">
 
 
-                                <div className="eluid303af9d8   col-md-12 col-sm-12   zn_sortable_content zn_content "
+                                <div className="eluid303af9d8   col-md-8 col-sm-8   zn_sortable_content zn_content "
                                      data-droplevel="2">
                                     <div
                                         className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--border  tbk-icon-pos--after-title eluidc87c1f73 ">
@@ -423,7 +425,7 @@ class Home extends Component {
                                     </div>
                                 </div>
 
-                                <div className="eluid4d4ed940   col-md-8 col-sm-8   zn_sortable_content zn_content "
+                                <div className="eluid4d4ed940   col-md-5 col-sm-5   zn_sortable_content zn_content "
                                      data-droplevel="2">
                                     <div className="zn_text_box eluid29ccedf8  zn_text_box-light element-scheme--light">
                                         <p>But often companies send an email to the Director of Internships in order to
@@ -442,7 +444,8 @@ class Home extends Component {
                                     </div>
                                 </div>
 
-                                <div className="eluid94ac302b   col-md-4 col-sm-4   zn_sortable_content zn_content "
+
+                                <div className="eluid94ac302b   col-md-3 col-sm-3   zn_sortable_content zn_content "
                                      data-droplevel="2">
                                     <div
                                         className="team_member team-member u-trans-all-2s eluid7d3ae0ee  teambox--light element-scheme--light teambox-style--hover">
@@ -482,6 +485,14 @@ class Home extends Component {
                         <a href="http://esprit.tn/en-video-le-bal-des-projets-20162017-ecole-ingenieur-tunisie/"
                            className="kl-blog-item-comments-link kl-font-alt">published : 2018/2019</a>
                     </div>
+                </div>
+            );
+        }
+        else if(this.state.page == 'SkillsPage')
+        {
+            return (
+                <div>
+                    <h2>Your skills are..</h2>
                 </div>
             );
         }
