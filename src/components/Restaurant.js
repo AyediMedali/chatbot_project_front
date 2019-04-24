@@ -9,26 +9,25 @@ class Restaurant extends Component{
             <div
                 className="itemContainer kl-blog-item-container kl-blog--normal-post blog-post post-7602 post type-post status-publish format-video hentry category-evenements-et-challenges category-non-classe post_format-post-format-video">
                 <div className="itemHeader kl-blog-item-header">
-                    <h3 className="catItemAuthor kl-blog-item-author"><a href="#" rel="bookmark">Restoration price grid
+                    <h3 class="ib2-content--title infobox2-title" ><a href="#" rel="bookmark">Restoration price grid
                         for international students</a></h3>
                     <div className="post_details kl-blog-item-details kl-font-alt">
                         <center><img src={require('./images/restaurant_prices_table1.JPG')}
-                                     width="78%" height="auto"></img></center>
+                                     width="75%" height="auto"></img></center>
                     </div>
 
-                    <h3 className="catItemAuthor kl-blog-item-author"><a href="#" rel="bookmark">Restoration price grid
+                    <h3 class="ib2-content--title infobox2-title callout-banner-title"><a href="#" rel="bookmark">Restoration price grid
                         for Tunisian students</a></h3>
                     <div style={{width: '35%'}}><center><h5>Payment per semester : Annual commitment</h5></center></div>
                     <div className="post_details kl-blog-item-details kl-font-alt">
                         <center><img src={require('./images/restaurant_prices_table2.JPG')}
-                                     width="78%" height="auto"></img></center>
+                                     width="75%" height="auto"></img></center>
                     </div>
                     <div style={{width: '20%'}}><center><h5>Payment per month</h5></center></div>
                     <div className="post_details kl-blog-item-details kl-font-alt">
                         <center><img src={require('./images/restaurant_prices_table3.JPG')}
-                                     width="78%" height="auto"></img></center>
+                                     width="75%" height="auto"></img></center>
                     </div>
-
 
                 </div>
                 <div className="itemBody kl-blog-item-body">

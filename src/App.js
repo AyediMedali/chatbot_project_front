@@ -18,6 +18,7 @@ import storage from 'node-sessionstorage'
 import Restaurant from "./components/Restaurant";
 import Quiz from "./components/Quiz_score";
 import Dorm from "./components/Dorm";
+import BranchList from "./components/Branches/BranchList";
 
 class App extends Component {
 
@@ -57,6 +58,7 @@ class App extends Component {
                                 <Route path="/Restaurant_and_prices" component={Restaurant}/>
                                 <Route path="/Quiz_score" component={Quiz}/>
                                 <Route path="/Dorm_and_reservations" component={Dorm}/>
+                                <Route path="/Branch_list" component={BranchList} />
                                 <Route component={Notfound}/>
                             </Switch>
 

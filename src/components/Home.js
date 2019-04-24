@@ -488,6 +488,7 @@ class Home extends Component {
                 </div>
             );
         }
+
         else if(this.state.page == 'SkillsPage')
         {
             return (
@@ -496,6 +497,18 @@ class Home extends Component {
                 </div>
             );
         }
+
+          else if(this.state.page == "twinPage") {
+            return (
+              <div className="eluid89cc2067   col-sm-8    zn_sortable_content zn_content " data-droplevel={2}>
+              <div className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--line_border  tbk-icon-pos--after-title eluide93b096e "><h3 className="tbk__title ">TWIN BRANCH (Web and Internet Technologies) </h3><span className="tbk__symbol "><span /></span><div className="tbk__text">
+                </div></div>
+              <div className="adbox video eluid56e1df16 "><img className="adbox-img" src="http://41.226.11.246/wp-content/uploads/2016/07/TWIN.jpg" alt title /><div className="video_trigger_wrapper"><div className="adbox_container"><a className="playVideo" data-lightbox="iframe" href="https://www.youtube.com/watch?v=mbHybO2G1T0" /><h5 className="adbox-title kl-font-alt">TWIN : Technologies du Web et de l’INternet </h5></div></div></div>			</div>
+            
+               
+            );
+          }
+
     }
 
     render() {

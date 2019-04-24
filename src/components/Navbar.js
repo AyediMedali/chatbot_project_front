@@ -155,7 +155,7 @@ class Navbar extends Component {
                   <div className="zn-res-menuwrapper">
                     <a href="#" className="zn-res-trigger zn-header-icon" />
                   </div>{/* end responsive menu */}
-                  <div id="main-menu" className="main-nav mainnav--active-bg mainnav--pointer-dash nav-mm--light zn_mega_wrapper "><ul id="menu-menuprincipalesprit" className="main-menu main-menu-nav zn_mega_menu "><li id="menu-item-1894" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1894  main-menu-item-top  menu-item-even menu-item-depth-0"><a href="#" className=" main-menu-link main-menu-link-top">ESPRIT</a>
+                      <div id="main-menu" className="main-nav mainnav--active-bg mainnav--pointer-dash nav-mm--light zn_mega_wrapper "><ul id="menu-menuprincipalesprit" className="main-menu main-menu-nav zn_mega_menu "><li id="menu-item-1894" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1894  main-menu-item-top  menu-item-even menu-item-depth-0"><a href="#" className=" main-menu-link main-menu-link-top">CHATBOT</a>
                         <ul className="sub-menu clearfix">
                           <li id="menu-item-1895" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1895  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/mot-du-pdg/" className=" main-menu-link main-menu-link-sub">Mot du Président</a></li>
                           <li id="menu-item-1897" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1897  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/valeurs-de-lecole/" className=" main-menu-link main-menu-link-sub">Valeurs de l’école</a></li>
@@ -174,9 +174,9 @@ class Navbar extends Component {
                       <li id="menu-item-1902" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1902  main-menu-item-top  menu-item-even menu-item-depth-0"><a href="#" className=" main-menu-link main-menu-link-top">ADMISSION</a>
                         <ul className="sub-menu clearfix">
 
-                          <li id="menu-item-1906" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1906  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="/Restaurant_and_prices" className=" main-menu-link main-menu-link-sub">Restaurant and prices</a></li>
-                          <li id="menu-item-7780" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-7780  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="/Dorm_and_reservations" className=" main-menu-link main-menu-link-sub">Dorm and reservations</a></li>
-                          <li id="menu-item-7779" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-7779  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="/Quiz_score" className=" main-menu-link main-menu-link-sub">My quiz score</a></li>
+                            <li id="menu-item-1906" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1906  main-menu-item-sub  menu-item-odd menu-item-depth-1"><NavLink to="/Restaurant_and_prices" className=" main-menu-link main-menu-link-sub">Restaurant and prices</NavLink></li>
+                            <li id="menu-item-7780" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-7780  main-menu-item-sub  menu-item-odd menu-item-depth-1"><NavLink to="/Dorm_and_reservations" className=" main-menu-link main-menu-link-sub">Dorm and reservations</NavLink></li>
+                            <li id="menu-item-7779" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-7779  main-menu-item-sub  menu-item-odd menu-item-depth-1"><NavLink to="/Quiz_score" className=" main-menu-link main-menu-link-sub">My quiz score</NavLink></li>
                         </ul>
                       </li>
                       <li id="menu-item-1915" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1915  main-menu-item-top  menu-item-even menu-item-depth-0"><a href="#" className=" main-menu-link main-menu-link-top">FORMATION</a>
@@ -188,10 +188,10 @@ class Navbar extends Component {
 
                         </ul>
                       </li>
-                      <li id="menu-item-1926" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1926  main-menu-item-top  menu-item-even menu-item-depth-0"><a href="#" className=" main-menu-link main-menu-link-top">R.D.I.</a>
+                      <li id="menu-item-1926" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1926  main-menu-item-top  menu-item-even menu-item-depth-0"><a href="#" className=" main-menu-link main-menu-link-top">BRANCHES</a>
                         <ul className="sub-menu clearfix">
-                          <li id="menu-item-2276" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-2276  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/esprit-tech/" className=" main-menu-link main-menu-link-sub">Esprit-Tech</a></li>
-                          <li id="menu-item-2275" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-2275  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/productions/" className=" main-menu-link main-menu-link-sub">Productions</a></li>
+                          <li id="menu-item-2276" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-2276  main-menu-item-sub  menu-item-odd menu-item-depth-1"><NavLink to={'/branch_list'} className=" main-menu-link main-menu-link-sub">Branches List</NavLink></li>
+                          <li id="menu-item-2275" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-2275  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/productions/" className=" main-menu-link main-menu-link-sub">Students Success Story</a></li>
                           <li id="menu-item-2274" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-2274  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/les-equipes/" className=" main-menu-link main-menu-link-sub">Les équipes</a></li>
                         </ul>
                       </li>
