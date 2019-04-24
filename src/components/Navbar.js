@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom'
-
 class Navbar extends Component {
     constructor(props) {
         super(props);
@@ -179,43 +178,13 @@ class Navbar extends Component {
                           <li id="menu-item-7779" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-7779  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/inscription-au-concoursesb/" className=" main-menu-link main-menu-link-sub">Esprit School of Business</a></li>
                         </ul>
                       </li>
-                      <li id="menu-item-1915" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1915  main-menu-item-top  menu-item-even menu-item-depth-0"><a href="#" className=" main-menu-link main-menu-link-top">FORMATIONS</a>
+                      <li id="menu-item-1915" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1915  main-menu-item-top  menu-item-even menu-item-depth-0"><a href="#" className=" main-menu-link main-menu-link-top">FORMATION</a>
                         <ul className="sub-menu clearfix">
-                          <li id="menu-item-1916" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1916  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="#" className=" main-menu-link main-menu-link-sub">Esprit école d’ingénieurs</a>
-                            <ul className="sub-menu clearfix">
-                              <li id="menu-item-2300" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-2300  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/presentation/" className=" main-menu-link main-menu-link-sub">Présentation</a></li>
-                              <li id="menu-item-1919" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1919  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/specialites/" className=" main-menu-link main-menu-link-sub">Spécialités et Options</a></li>
-                              <li id="menu-item-1921" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1921  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/stages/" className=" main-menu-link main-menu-link-sub">Stages</a></li>
-                              <li id="menu-item-2296" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-2296  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/langues-et-developpement-personnel/" className=" main-menu-link main-menu-link-sub">Langues et dév personnel</a></li>
-                              <li id="menu-item-7442" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-7442  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/formation-des-formateurs/" className=" main-menu-link main-menu-link-sub">Formation des formateurs</a></li>
-                              <li id="menu-item-1920" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1920  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/reglement-scolaire/" className=" main-menu-link main-menu-link-sub">Réglement scolaire</a></li>
-                              <li id="menu-item-7441" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-7441  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/calendrier-des-examens/" className=" main-menu-link main-menu-link-sub">Calendrier des examens-Session de rattrapage 2017/2018</a></li>
-                            </ul>
-                          </li>
-                          <li id="menu-item-4601" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4601  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="#" className=" main-menu-link main-menu-link-sub">Esprit School of Business</a>
-                            <ul className="sub-menu clearfix">
-                              <li id="menu-item-4612" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-4612  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/esb-presentation/" className=" main-menu-link main-menu-link-sub">Présentation</a></li>
-                              <li id="menu-item-4611" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-4611  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/esb-specialites/" className=" main-menu-link main-menu-link-sub">Spécialités</a></li>
-                              <li id="menu-item-4610" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-4610  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/esb-reglement-scolaire/" className=" main-menu-link main-menu-link-sub">Règlement scolaire</a></li>
-                              <li id="menu-item-4892" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-4892  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/esb-inscription/" className=" main-menu-link main-menu-link-sub">Inscription</a></li>
-                            </ul>
-                          </li>
-                          <li id="menu-item-1917" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1917  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="#" className=" main-menu-link main-menu-link-sub">Esprit-prépa</a>
-                            <ul className="sub-menu clearfix">
-                              <li id="menu-item-1923" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-1923  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://www.esprit-prepa.com/ACCUEIL.aspx" className=" main-menu-link main-menu-link-sub">Classes M.P.S.I</a></li>
-                            </ul>
-                          </li>
-                          <li id="menu-item-1918" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1918  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="#" className=" main-menu-link main-menu-link-sub">FORMATION CONTINUE</a>
-                            <ul className="sub-menu clearfix">
-                              <li id="menu-item-1924" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1924  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/cours-du-soir/" className=" main-menu-link main-menu-link-sub">Cours du soir</a></li>
-                              <li id="menu-item-1925" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1925  main-menu-item-sub main-menu-item-sub-sub menu-item-even menu-item-depth-2"><a href="http://esprit.tn/mba/" className=" main-menu-link main-menu-link-sub">Executive MBA</a>
-                                <ul className="sub-menu clearfix">
-                                  <li id="menu-item-2307" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-2307  main-menu-item-sub main-menu-item-sub-sub menu-item-odd menu-item-depth-3"><a href="http://esprit.tn/esprit-language-center/" className=" main-menu-link main-menu-link-sub">Esprit Language Center</a></li>
-                                  <li id="menu-item-5041" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-5041  main-menu-item-sub main-menu-item-sub-sub menu-item-odd menu-item-depth-3"><a href="http://esprit.tn/tef-tefaq/" className=" main-menu-link main-menu-link-sub">TEF &amp; TEFAQ</a></li>
-                                </ul>
-                              </li>
-                            </ul>
-                          </li>
+
+                            <li id="menu-item-1906" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1906  main-menu-item-sub  menu-item-odd menu-item-depth-1"><NavLink to={'/internships'} className=" main-menu-link main-menu-link-sub"> Internships  </NavLink></li>
+                            <li id="menu-item-7780" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-7780  main-menu-item-sub  menu-item-odd menu-item-depth-1"><NavLink to={'/exams'} className=" main-menu-link main-menu-link-sub">Exams</NavLink></li>
+                            <li id="menu-item-7779" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-7779  main-menu-item-sub  menu-item-odd menu-item-depth-1"><NavLink to={'/internal_regulations'} className=" main-menu-link main-menu-link-sub">Internal regulations</NavLink></li>
+
                         </ul>
                       </li>
                       <li id="menu-item-1926" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1926  main-menu-item-top  menu-item-even menu-item-depth-0"><a href="#" className=" main-menu-link main-menu-link-top">R.D.I.</a>

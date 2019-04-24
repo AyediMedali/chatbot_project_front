@@ -22,17 +22,17 @@ class Home extends Component {
         body: response,
         from: 'robot'
       }
-      console.log(JSON.stringify(msg) + " message")
+      console.log(msg.body.msg+ " message")
       console.log(msg.body.page + " page name")
       // this.state = {messages : []}
       // console.log(this.state)
       //  console.log(this.state.messages)
 
-      if(msg.body!="")
-      {
+      // if(msg.body!="")
+      // {
         this.setState({messages:[...this.state.messages, msg ]})
         this.setState({page:response.page})
-      }
+     // }
 
 
 
@@ -69,8 +69,10 @@ class Home extends Component {
           <div className="col-sm-12 message-main-receiver pull-right">
             <div className="sender">
               <div class="message-text">
+
+
               { message.body.msg ? message.body.msg : message.body }
-                
+
               </div>
               <span className="message-time pull-right">
           </span>
@@ -80,11 +82,17 @@ class Home extends Component {
       }
       else if(message.from ==='robot')
       {
+        // var ex = 'test'
+        // if({page} === 'ExamPage')
+        // {
+        //    ex =
+        // }
 
         return <div className="row message-body">
           <div className="col-sm-12 message-main-receiver">
             <div className="receiver">
               <div class="message-text">
+
               { message.body.msg ? message.body.msg : message.body }
               </div>
               <span className="message-time pull-left">
@@ -140,7 +148,7 @@ class Home extends Component {
                 </div>
                 </div>
 
-                <div className="col"> { this.state.page}
+                <div className="col">
 
                  {page}
                   </div>

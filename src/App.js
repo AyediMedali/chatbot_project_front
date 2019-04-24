@@ -10,6 +10,9 @@ import About from './components/About';
 
 import Login from './components/Login'
 import Logout from './components/Logout'
+import Exams_InternalRegulations from './components/Exams_InternalRergulations'
+import Internships from './components/Internships'
+
 import Notfound from './components/notfound'
 import storage from 'node-sessionstorage'
 
@@ -41,6 +44,11 @@ class App extends Component {
                             <Switch>
                                 <Route exact path='/' component={Home} exact></Route>
                                 <Route path='/about' component={About}></Route>
+                                <Route path="/login" component={Login}/>
+                                <Route path="/internships" component={Internships}/>
+                                <Route path="/pfe" component={Internships}/>
+                                <Route path="/exams" component={Exams_InternalRegulations}/>
+                                <Route path="/internal_regulations" component={Exams_InternalRegulations}/>
                                 <Route path="/login" component={Login}/>
                                 <Route path="/logout" component={Logout}/>
                                 <Route component={Notfound}/>
