@@ -12,6 +12,9 @@ import Login from './components/Login'
 import Logout from './components/Logout'
 import Notfound from './components/notfound'
 import storage from 'node-sessionstorage'
+import Restaurant from "./components/Restaurant";
+import Quiz from "./components/Quiz_score";
+import Dorm from "./components/Dorm";
 
 class App extends Component {
 
@@ -43,6 +46,9 @@ class App extends Component {
                                 <Route path='/about' component={About}></Route>
                                 <Route path="/login" component={Login}/>
                                 <Route path="/logout" component={Logout}/>
+                                <Route path="/Restaurant_and_prices" component={Restaurant}/>
+                                <Route path="/Quiz_score" component={Quiz}/>
+                                <Route path="/Dorm_and_reservations" component={Dorm}/>
                                 <Route component={Notfound}/>
                             </Switch>
 
