@@ -188,10 +188,10 @@ class Navbar extends Component {
 
                         </ul>
                       </li>
-                      <li id="menu-item-1926" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1926  main-menu-item-top  menu-item-even menu-item-depth-0"><a href="#" className=" main-menu-link main-menu-link-top">R.D.I.</a>
+                      <li id="menu-item-1926" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1926  main-menu-item-top  menu-item-even menu-item-depth-0"><a href="#" className=" main-menu-link main-menu-link-top">BRANCHES</a>
                         <ul className="sub-menu clearfix">
-                          <li id="menu-item-2276" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-2276  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/esprit-tech/" className=" main-menu-link main-menu-link-sub">Esprit-Tech</a></li>
-                          <li id="menu-item-2275" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-2275  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/productions/" className=" main-menu-link main-menu-link-sub">Productions</a></li>
+                          <li id="menu-item-2276" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-2276  main-menu-item-sub  menu-item-odd menu-item-depth-1"><NavLink to={'/branch_list'} className=" main-menu-link main-menu-link-sub">Branches List</NavLink></li>
+                          <li id="menu-item-2275" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-2275  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/productions/" className=" main-menu-link main-menu-link-sub">Students Success Story</a></li>
                           <li id="menu-item-2274" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-2274  main-menu-item-sub  menu-item-odd menu-item-depth-1"><a href="http://esprit.tn/les-equipes/" className=" main-menu-link main-menu-link-sub">Les équipes</a></li>
                         </ul>
                       </li>
