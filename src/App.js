@@ -10,11 +10,15 @@ import About from './components/About';
 
 import Login from './components/Login'
 import Logout from './components/Logout'
+import Exams_InternalRegulations from './components/Exams_InternalRergulations'
+import Internships from './components/Internships'
+
 import Notfound from './components/notfound'
 import storage from 'node-sessionstorage'
 import Restaurant from "./components/Restaurant";
 import Quiz from "./components/Quiz_score";
 import Dorm from "./components/Dorm";
+import BranchList from "./components/Branches/BranchList";
 
 class App extends Component {
 
@@ -45,10 +49,16 @@ class App extends Component {
                                 <Route exact path='/' component={Home} exact></Route>
                                 <Route path='/about' component={About}></Route>
                                 <Route path="/login" component={Login}/>
+                                <Route path="/internships" component={Internships}/>
+                                <Route path="/pfe" component={Internships}/>
+                                <Route path="/exams" component={Exams_InternalRegulations}/>
+                                <Route path="/internal_regulations" component={Exams_InternalRegulations}/>
+                                <Route path="/login" component={Login}/>
                                 <Route path="/logout" component={Logout}/>
                                 <Route path="/Restaurant_and_prices" component={Restaurant}/>
                                 <Route path="/Quiz_score" component={Quiz}/>
                                 <Route path="/Dorm_and_reservations" component={Dorm}/>
+                                <Route path="/Branch_list" component={BranchList} />
                                 <Route component={Notfound}/>
                             </Switch>
 
