@@ -4,6 +4,7 @@ class BranchList extends Component {
     render() {
         return (
             <React.Fragment>
+             <div className="itemComments kl-blog-item-comments">
                     
                
 <div>
@@ -35,6 +36,7 @@ class BranchList extends Component {
     </div>
   </section>
  
+</div>
 </div>
             </React.Fragment>
         );
