@@ -10,6 +10,8 @@ import DynamicContextSkills from './DynamicContextSkills';
 import DynamicContextInternships from './DynamicContextInternships';
 import CloseEventMap from "./Events/CloseEventMap";
 import CarouselObjects from "./lostObjects/Carousel";
+import {Button} from "react-bootstrap";
+
 
 class Home extends Component {
     constructor(props) {
@@ -145,19 +147,44 @@ class Home extends Component {
         else if (this.state.page == 'ExamPage') {
 
             var items = this.state.exams;
+            const btnStyle = {
+                background: '#B22222',
+                color: 'white',
+            };
 
             if (items.length == 0) {
                 return (
                     <div>
-                        <input type="submit" value={this.state.buttonValue} onClick={this.onClickCalendar} />
+                        <Button
+
+                            variant="outline-danger"
+                            style={btnStyle}
+                            onClick={this.onClickCalendar}
+                            type="submit"
+                        >
+                            {this.state.buttonValue}
+                        </Button>
+                        {/*<input type="submit" value={this.state.buttonValue} onClick={this.onClickCalendar} />*/}
                         Sorry you don't have any Exams
 
                     </div>
                 );
             } else {
+
                 return (
                     <div id="main" className="container">
-                        <input type="submit" value={this.state.buttonValue} onClick={this.onClickCalendar} />
+                        <Button
+
+                            variant="outline-danger"
+                            style={btnStyle}
+                            onClick={this.onClickCalendar}
+                            type="submit"
+                        >
+                            {this.state.buttonValue}
+                        </Button>
+
+
+                        {/*<input type="submit" value={this.state.buttonValue} onClick={this.onClickCalendar} />*/}
                         <ul>
                             {items.map(item => (
 
