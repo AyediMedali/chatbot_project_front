@@ -32,13 +32,20 @@ class Home extends Component {
 
             // console.log(response)
             // this.setState({page:response.page})
+            // response.msg = response.msg.replace(/ ,/g, '\n');;
 
+            var myStr = 'this,is,a,test';
+            response.msg  = response.msg .replace(/,/g, '\n');
+          //  console.log(response.msg)
+
+
+            console.log(response)
             const msg = {
                 body: response,
                 from: 'robot'
             }
-            console.log(msg.body.msg + " message")
-            console.log(msg.body.page + " page name")
+            // console.log(msg.body.msg + " message")
+            // console.log(msg.body.page + " page name")
             // this.state = {messages : []}
             // console.log(this.state)
             //  console.log(this.state.messages)
@@ -87,13 +94,12 @@ class Home extends Component {
 
     handleSubmit = event => {
         const body = event.target.value
-        console.log(body.replace(/\s/g, '').length)
+        // console.log(body.replace(/\s/g, '').length)
         if (event.keyCode === 13 && body.replace(/\s/g, '').length) {
             const message = {
                 body,
                 from: 'Me'
             }
-            console.log(this.state)
 
             this.setState({messages: [...this.state.messages, message]})
             this.socket.emit('chat request', body)
