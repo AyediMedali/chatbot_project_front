@@ -16,7 +16,8 @@ class Home extends Component {
             messages: [],
             page: "",
             skills: [],
-            best_pfe: []
+            best_pfe: [],
+            exams: []
         }
 
 
@@ -45,7 +46,11 @@ class Home extends Component {
             this.setState({messages: [...this.state.messages, msg]})
             this.setState({page: response.page})
             // }
-            if (this.state.page == 'SkillsPage' || this.state.page == 'PfePage') {
+            if (this.state.page == 'SkillsPage'
+                || this.state.page == 'PfePage'
+                || this.state.page == 'ExamPage'
+
+            ) {
 
                 fetch('http://localhost:3000/get_connected_user')
                     .then(res => res.json())
@@ -56,7 +61,7 @@ class Home extends Component {
                         // })
                         // if(res.user.skills.length != 0)
                         // {
-                        console.log(res.user.skills)
+                        console.log(res.user.exams)
 
                         // const Userskills = res.user.skills.map(obj => [obj.title]);
                         // this.setState({ skills: Userskills });
@@ -64,6 +69,9 @@ class Home extends Component {
                             this.setState({skills: res.user.skills})
                         } else if (this.state.page == 'PfePage') {
                             this.setState({best_pfe: res.user.internships})
+                        }
+                        if (this.state.page == 'ExamPage') {
+                            this.setState({exams: res.user.exams})
                         }
 
                     });
@@ -100,16 +108,45 @@ class Home extends Component {
 
         }
     }
-    
+
 
     according_to_context() {
 
 
         if (this.state.page == '' || this.state.page == undefined) return <h2>Welcome to ESPRIT Chatbot</h2>
         else if (this.state.page == 'ExamPage') {
-            return (
-                <DynamicContextExams/>
-            );
+
+            var items = this.state.exams;
+
+            if (items.length == 0) {
+                return (
+                    <div>Sorry you don't have any Exams</div>
+                );
+            } else {
+                return (
+                    <div id="main" className="container">
+                        <ul>
+                            {items.map(item => (
+
+                                <li key={item._id}>
+
+                                    <br/>********* EXAM ******** <br/>
+                                    exam_type : {item.exam_type} <br/>
+                                    coef : {item.coef} <br/>
+                                    passing_date : {item.passing_date} <br/>
+                                    passing_way : {item.passing_way} <br/>
+                                    old exams : {item.url_drive} <br/>
+
+                                </li>
+                            ))}
+                        </ul>
+                        <DynamicContextExams/>
+                    </div>
+
+                );
+            }
+
+
 
         } else if (this.state.page == 'InternalRegulationsPage') {
             return (
