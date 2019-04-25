@@ -96,12 +96,7 @@ class Home extends Component {
             this.setState({messages: [...this.state.messages, message]})
             this.socket.emit('chat request', body)
 
-//         if (this.state.page == '' || this.state.page == undefined) {
-            //             if (localStorage.getItem('token') !== '')
-            //                 return <h2>Welcome to ESPRIT Chatbot,
-            //                     {localStorage.getItem('firstname')}</h2>
-            //             return <h2>Welcome to ESPRIT Chatbot</h2>
-            //         }
+
 
 
             event.target.value = ''
@@ -113,7 +108,15 @@ class Home extends Component {
     according_to_context() {
 
 
-        if (this.state.page == '' || this.state.page == undefined) return <h2>Welcome to ESPRIT Chatbot</h2>
+        if (this.state.page == '' || this.state.page == undefined)
+        {
+            if(localStorage.getItem('token') == ''){
+                return <h2>Welcome to ESPRIT Chatbot</h2>
+            }
+            else
+                return <h2>Welcome to ESPRIT Chatbot {localStorage.getItem('firstname')} </h2>
+
+        }
         else if (this.state.page == 'ExamPage') {
 
             var items = this.state.exams;
