@@ -11,6 +11,10 @@ import DynamicContextInternships from './DynamicContextInternships';
 import CloseEventMap from "./Events/CloseEventMap";
 import CarouselObjects from "./lostObjects/Carousel";
 import {Button} from "react-bootstrap";
+import StudentStory from './Branches/StudentStory' ;
+import SafeRouteDecision from './Branches/SafeRouteDecision';
+import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
 
 
 class Home extends Component {
@@ -95,6 +99,38 @@ class Home extends Component {
         }.bind(this))
     }
 
+    /* handleSafe = event => {
+        console.log("launches ");
+        console.log("**************");
+        console.log(event.target.value) ;
+        const body  ="i will stay at the company"
+        const message = {
+            body ,
+            from: 'Me'
+        }
+        this.setState({messages: [...this.state.messages, message]})
+        this.socket.emit('chat request', body)
+
+    }*/
+    handleSafe(type){
+        console.log("launches ");
+        console.log("**************");
+        var body ="" ;
+        if(type=="stay")
+        {
+         body  ="i will stay at the company" ;
+        }
+        else if(type=="leave")
+        {
+             body = "i will start my own startup";
+        }
+        const message = {
+            body ,
+            from: 'Me'
+        }
+        this.setState({messages: [...this.state.messages, message]})
+        this.socket.emit('chat request', body)
+    }
 
     handleSubmit = event => {
         const body = event.target.value
@@ -333,6 +369,124 @@ class Home extends Component {
 
             );
         }
+        else if(this.state.page == "glPage"){
+            return (
+              <div className="eluid89cc2067   col-sm-8    zn_sortable_content zn_content " data-droplevel={2}>
+              <div className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--line_border  tbk-icon-pos--after-title eluide93b096e "><h3 className="tbk__title ">GL : Software Engineering</h3><span className="tbk__symbol "><span /></span><div className="tbk__text">
+                </div></div>
+              <div className="adbox video eluid56e1df16 "><img className="adbox-img" src="http://41.226.11.246/wp-content/uploads/2016/07/GL.jpg" alt title /><div className="video_trigger_wrapper"><div className="adbox_container"><a className="playVideo" data-lightbox="iframe" href="https://www.youtube.com/watch?v=uC5Zga6GDGU" /><h5 className="adbox-title kl-font-alt">TWIN : Technologies du Web et de l’INternet </h5></div></div></div>			</div>
+            
+               
+            );
+          }
+          else if(this.state.page == "biPage"){
+            return (
+              <div className="eluid89cc2067   col-sm-8    zn_sortable_content zn_content " data-droplevel={2}>
+              <div className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--line_border  tbk-icon-pos--after-title eluide93b096e "><h3 className="tbk__title ">ERP/BUSINESS INTELLIGENCE</h3><span className="tbk__symbol "><span /></span><div className="tbk__text">
+                </div></div>
+              <div className="adbox video eluid56e1df16 "><img className="adbox-img" src="http://41.226.11.246/wp-content/uploads/2016/07/ERP.jpg" alt title /><div className="video_trigger_wrapper"><div className="adbox_container"><a className="playVideo" data-lightbox="iframe" href="https://www.youtube.com/watch?v=_yEeNDuENfI" /><h5 className="adbox-title kl-font-alt">BI</h5></div></div></div>			</div>
+            
+               
+            );
+          }
+          else if(this.state.page == "nidsPage"){
+            return (
+             <div>
+              <div className="eluidf2c78813   col-md-6 col-sm-6   zn_sortable_content zn_content " data-droplevel={2}>
+                <div className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--line_border  tbk-icon-pos--after-title eluid7bad52e4 "><h3 className="tbk__title ">Nids Branch : Security</h3><span className="tbk__symbol "><span /></span><div className="tbk__text">
+                  </div></div>
+                <div className="adbox video eluidbc7f8097 "><img className="adbox-img" src="http://esprit.tn/wp-content/uploads/2016/07/Sans-titre.png" alt title /><div className="video_trigger_wrapper"><div className="adbox_container"><a className="playVideo" data-lightbox="iframe" href="https://www.youtube.com/watch?v=IbzVf7ZMtKM" /><h5 className="adbox-title kl-font-alt">NIDS : Network Infrastructure and Data Security </h5></div></div></div>			</div>
+              <div className="eluidd6dca7c7   col-md-12 col-sm-12   zn_sortable_content zn_content " data-droplevel={2}>
+              </div>
+            </div>
+
+               
+            );
+          }
+          else if(this.state.page == "arcticPage"){
+            return (
+              <div className="eluid89cc2067   col-sm-8    zn_sortable_content zn_content " data-droplevel={2}>
+              <div className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--line_border  tbk-icon-pos--after-title eluide93b096e "><h3 className="tbk__title ">ArcTIC : Cloud Computing </h3><span className="tbk__symbol "><span /></span><div className="tbk__text">
+                </div></div>
+              <div className="adbox video eluid56e1df16 "><img className="adbox-img" src="http://esprit.tn/wp-content/uploads/2016/07/Sans-titre-f.jpg" alt title /><div className="video_trigger_wrapper"><div className="adbox_container"><a className="playVideo" data-lightbox="iframe" href="https://www.youtube.com/watch?v=-BOpcwXNc1k" /><h5 className="adbox-title kl-font-alt">ARCTIC : Cloud Computing</h5></div></div></div>			</div>
+            
+               
+            );
+          }
+          else if(this.state.page == "infiniPage"){
+            return (
+              <div className="eluid89cc2067   col-sm-8    zn_sortable_content zn_content " data-droplevel={2}>
+              <div className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--line_border  tbk-icon-pos--after-title eluide93b096e "><h3 className="tbk__title ">INFINI</h3><span className="tbk__symbol "><span /></span><div className="tbk__text">
+                </div></div>
+              <div className="adbox video eluid56e1df16 "><img className="adbox-img" src="http://41.226.11.246/wp-content/uploads/2016/07/InFini.jpg" alt title /><div className="video_trigger_wrapper"><div className="adbox_container"><a className="playVideo" data-lightbox="iframe" href="https://www.youtube.com/watch?v=_c2Wa22vt9Q" /><h5 className="adbox-title kl-font-alt">INFINI</h5></div></div></div>			</div>
+            
+               
+            );
+          }
+          else if(this.state.page == "simPage"){
+            return (
+              <div className="eluid89cc2067   col-sm-8    zn_sortable_content zn_content " data-droplevel={2}>
+              <div className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--line_border  tbk-icon-pos--after-title eluide93b096e "><h3 className="tbk__title ">SIM BRANCH : Mobile</h3><span className="tbk__symbol "><span /></span><div className="tbk__text">
+                </div></div>
+              <div className="adbox video eluid56e1df16 "><img className="adbox-img" src="http://esprit.tn/wp-content/uploads/2016/07/Sans-titre-sim.jpg" alt title /><div className="video_trigger_wrapper"><div className="adbox_container"><a className="playVideo" data-lightbox="iframe" href="https://www.youtube.com/watch?v=KAOo8Z0d-5A" /><h5 className="adbox-title kl-font-alt">SIM BRANCH : Mobile</h5></div></div></div>			</div>
+            
+               
+            );
+          }
+          else if(this.state.page == "sleamPage"){
+            return (
+              <div className="eluid89cc2067   col-sm-8    zn_sortable_content zn_content " data-droplevel={2}>
+              <div className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--line_border  tbk-icon-pos--after-title eluide93b096e "><h3 className="tbk__title ">SLEAM : Ambient and Embedded Systems</h3><span className="tbk__symbol "><span /></span><div className="tbk__text">
+                </div></div>
+              <div className="adbox video eluid56e1df16 "><img className="adbox-img" src="http://esprit.tn/wp-content/uploads/2016/07/Sans-titre-1.jpg" alt title /><div className="video_trigger_wrapper"><div className="adbox_container"><a className="playVideo" data-lightbox="iframe" href="https://www.youtube.com/watch?v=0AVMG6xK91I" /><h5 className="adbox-title kl-font-alt">SLEAM : Ambient and Embedded Systems </h5></div></div></div>			</div>
+            
+               
+            );
+          }
+
+          else if(this.state.page =="RelatedStudentsPage"){
+            return(
+              <StudentStory/>
+            )
+          }
+          else if (this.state.page== "safe_route_page"){
+              return (
+                  <React.Fragment>
+                       <VerticalTimeline>
+                          
+                <VerticalTimelineElement
+                  className="vertical-timeline-element--work"
+                  iconStyle={{ background: 'rgb(43, 42, 42)', color: '#fff' }}
+                >
+                 <a href='#' onClick={() =>this.handleSafe("stay")}>
+                  <h3 className="vertical-timeline-element-title">Safe Approach</h3>
+                  <h4 className="vertical-timeline-element-subtitle">Staying at the company without taking risks</h4>
+                  <p>
+                    You feel comfortable at the company with a fixed salary and do not want to start something new and risky .
+                  </p>
+                  </a>
+                </VerticalTimelineElement>
+                
+                <VerticalTimelineElement
+                  className="vertical-timeline-element--work"
+                  iconStyle={{ background: 'rgb(43, 42, 42)', color: '#fff' }}
+                >
+                  <a href='#' onClick={() =>this.handleSafe("leave")}>
+                  <h3 className="vertical-timeline-element-title">Risky Approach</h3>
+                  <h4 className="vertical-timeline-element-subtitle">Leaving the company for a new adventure</h4>
+                  <p>
+                    You seek a new adventure and do not mind risking the your fixed salary and stable life . Want to be the boss and not the way around
+                  </p>
+                  </a>
+
+                </VerticalTimelineElement>
+
+            </VerticalTimeline>
+                  <button onClick={() =>this.handleSafe("stay")}> Stay</button>
+                  <button onClick={() =>this.handleSafe("leave")}> Leave</button>
+                  </React.Fragment>
+              )
+          }
 
     }
 
