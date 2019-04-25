@@ -10,7 +10,8 @@ import About from './components/About';
 
 import Login from './components/Login'
 import Logout from './components/Logout'
-import Exams_InternalRegulations from './components/Exams_InternalRergulations'
+import Exams from './components/Exams'
+import InternalRegulations from './components/Internal_Regulations'
 import Internships from './components/Internships'
 
 import Notfound from './components/notfound'
@@ -19,6 +20,7 @@ import Restaurant from "./components/Restaurant";
 import Quiz from "./components/Quiz_score";
 import Dorm from "./components/Dorm";
 import BranchList from "./components/Branches/BranchList";
+import Reservations from "./components/Reservations";
 
 class App extends Component {
 
@@ -51,14 +53,15 @@ class App extends Component {
                                 <Route path="/login" component={Login}/>
                                 <Route path="/internships" component={Internships}/>
                                 <Route path="/pfe" component={Internships}/>
-                                <Route path="/exams" component={Exams_InternalRegulations}/>
-                                <Route path="/internal_regulations" component={Exams_InternalRegulations}/>
+                                <Route path="/exams" component={Exams}/>
+                                <Route path="/internal_regulations" component={InternalRegulations}/>
                                 <Route path="/login" component={Login}/>
                                 <Route path="/logout" component={Logout}/>
                                 <Route path="/Restaurant_and_prices" component={Restaurant}/>
                                 <Route path="/Quiz_score" component={Quiz}/>
                                 <Route path="/Dorm_and_reservations" component={Dorm}/>
                                 <Route path="/Branch_list" component={BranchList} />
+                                <Route path="/My_reservations" component={Reservations} />
                                 <Route component={Notfound}/>
                             </Switch>
 

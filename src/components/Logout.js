@@ -7,8 +7,7 @@ class Logout extends Component {
     constructor(props){
         super(props);
         this.state= {
-            message: "",
-            // redirect: false
+            user: "",
 
         }}
 

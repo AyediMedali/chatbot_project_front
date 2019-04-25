@@ -6,6 +6,20 @@ class Restaurant extends Component{
 
     render() {
         return (
+           <div>
+               <div className="col-sm-6">
+                   <ul vocab="http://schema.org/" typeof="BreadcrumbList"
+                       className="breadcrumbs fixclear bread-style--black">
+                       <li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage"
+                                                                           href="http://esprit.tn">Admission</a></li>
+                       <li>Restaurant and prices</li>
+                   </ul>
+
+               </div>
+
+               <div className="clear"></div>
+
+
             <div
                 className="itemContainer kl-blog-item-container kl-blog--normal-post blog-post post-7602 post type-post status-publish format-video hentry category-evenements-et-challenges category-non-classe post_format-post-format-video">
                 <div className="itemHeader kl-blog-item-header">
@@ -52,9 +66,8 @@ class Restaurant extends Component{
                 </div>
 
                 <div className="clear"></div>
-
-
-            </div>);
+            </div>
+           </div>);
     }
 
 }
