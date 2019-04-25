@@ -20,6 +20,7 @@ import Restaurant from "./components/Restaurant";
 import Quiz from "./components/Quiz_score";
 import Dorm from "./components/Dorm";
 import BranchList from "./components/Branches/BranchList";
+import Reservations from "./components/Reservations";
 
 class App extends Component {
 
@@ -60,6 +61,7 @@ class App extends Component {
                                 <Route path="/Quiz_score" component={Quiz}/>
                                 <Route path="/Dorm_and_reservations" component={Dorm}/>
                                 <Route path="/Branch_list" component={BranchList} />
+                                <Route path="/My_reservations" component={Reservations} />
                                 <Route component={Notfound}/>
                             </Switch>
 

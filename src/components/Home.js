@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import socketIOClient from "socket.io-client";
 import './css/style.css';
+import {GoogleMap} from 'react-google-maps';
+import Map from "./Events/Map";
 
 import DynamicContextExams from './DynamicContextExams';
 import DynamicContextInternalRegulations from './DynamicContextInternalRegulations';
@@ -14,7 +16,7 @@ class Home extends Component {
             messages: [],
             page: "",
             skills: [],
-            best_pfe:[]
+            best_pfe: []
         }
 
 
@@ -43,8 +45,7 @@ class Home extends Component {
             this.setState({messages: [...this.state.messages, msg]})
             this.setState({page: response.page})
             // }
-            if(this.state.page == 'SkillsPage' || this.state.page =='PfePage')
-            {
+            if (this.state.page == 'SkillsPage' || this.state.page == 'PfePage') {
 
                 fetch('http://localhost:3000/get_connected_user')
                     .then(res => res.json())
@@ -59,13 +60,10 @@ class Home extends Component {
 
                         // const Userskills = res.user.skills.map(obj => [obj.title]);
                         // this.setState({ skills: Userskills });
-                        if(this.state.page == 'SkillsPage')
-                        {
-                            this.setState({ skills: res.user.skills })
-                        }
-                        else if(this.state.page =='PfePage')
-                        {
-                            this.setState({ best_pfe: res.user.internships })
+                        if (this.state.page == 'SkillsPage') {
+                            this.setState({skills: res.user.skills})
+                        } else if (this.state.page == 'PfePage') {
+                            this.setState({best_pfe: res.user.internships})
                         }
 
                     });
@@ -90,14 +88,17 @@ class Home extends Component {
             this.socket.emit('chat request', body)
 
 
+            if (this.state.page == '' || this.state.page == undefined) {
+                if (localStorage.getItem('token') !== '')
+                    return <h2>Welcome to ESPRIT Chatbot,
+                        {localStorage.getItem('firstname')}</h2>
+                return <h2>Welcome to ESPRIT Chatbot</h2>
+            }
 
 
             event.target.value = ''
 
         }
-
-
-
 
 
     }
@@ -111,23 +112,18 @@ class Home extends Component {
                 <DynamicContextExams/>
             );
 
-        }
-        else if(this.state.page == 'InternalRegulationsPage'){
+        } else if (this.state.page == 'InternalRegulationsPage') {
             return (
-               <DynamicContextInternalRegulations/>
+                <DynamicContextInternalRegulations/>
             );
-        }
-        else if (this.state.page == 'PfePage') {
-            var  items  = this.state.best_pfe ;
+        } else if (this.state.page == 'PfePage') {
+            var items = this.state.best_pfe;
 
-            if(items.length == 0)
-            {
+            if (items.length == 0) {
                 return (
                     <div>Sorry you don't have any internships for your skills</div>
-                )   ;
-            }
-            else
-            {
+                );
+            } else {
                 return (
                     <div id="main" className="container">
                         <ul>
@@ -136,14 +132,14 @@ class Home extends Component {
                                 <li key={item._id}>
 
                                     <br/>********* PFE ******** <br/>
-                                    Entreprise :  {item.entreprise} <br/>
-                                    Description :  {item.description} <br/>
-                                    Profile request :  {item.profile_request} <br/>
+                                    Entreprise : {item.entreprise} <br/>
+                                    Description : {item.description} <br/>
+                                    Profile request : {item.profile_request} <br/>
                                     {/*Skills :  {item.map((it,i) => <li key={i}>it.title</li>)} <br/>*/}
                                     {/*Skills :  {item.skills[0].title} <br/>*/}
-                                    Start date :  {item.start_date} <br/>
-                                    End date :  {item.end_date} <br/>
-                                    Location :  {item.location} <br/>
+                                    Start date : {item.start_date} <br/>
+                                    End date : {item.end_date} <br/>
+                                    Location : {item.location} <br/>
 
                                 </li>
                             ))}
@@ -152,46 +148,68 @@ class Home extends Component {
                 );
             }
 
-        }
+        } else if (this.state.page == 'SkillsPage') {
 
-        else if(this.state.page == 'SkillsPage')
-        {
+            var items = this.state.skills;
 
-            var  items  = this.state.skills ;
-
-            if(items.length == 0)
-            {
+            if (items.length == 0) {
                 return (
                     <div>Sorry you don't have any skills yet</div>
-                )   ;
-            }
-            else
+                );
+            } else {
                 return (
-                <div id="main" className="container">
-                    <ul>
-                        {items.map(item => (
-                            <li key={item._id}>
-                                title :  {item.title} ;
+                    <div id="main" className="container">
+                        <ul>
+                            {items.map(item => (
+                                <li key={item._id}>
+                                    title : {item.title} ;
 
-                            </li>
-                        ))}
-                    </ul>
+                                </li>
+                            ))}
+                        </ul>
+
+                    </div>
+                );
+            }
+        } else if (this.state.page === 'EventPage') {
+
+            return (
+                <div>
+                    <h2>Please pick your event's location</h2>
+                    <Map/>
                 </div>
             );
-
-
-        }
-
-          else if(this.state.page == "twinPage") {
+        } else if (this.state.page == 'WeatherPage') {
             return (
-              <div className="eluid89cc2067   col-sm-8    zn_sortable_content zn_content " data-droplevel={2}>
-              <div className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--line_border  tbk-icon-pos--after-title eluide93b096e "><h3 className="tbk__title ">TWIN BRANCH (Web and Internet Technologies) </h3><span className="tbk__symbol "><span /></span><div className="tbk__text">
-                </div></div>
-              <div className="adbox video eluid56e1df16 "><img className="adbox-img" src="http://41.226.11.246/wp-content/uploads/2016/07/TWIN.jpg" alt title /><div className="video_trigger_wrapper"><div className="adbox_container"><a className="playVideo" data-lightbox="iframe" href="https://www.youtube.com/watch?v=mbHybO2G1T0" /><h5 className="adbox-title kl-font-alt">TWIN : Technologies du Web et de l’INternet </h5></div></div></div>			</div>
-            
-               
+                <div>
+                    <h2>Weather Page..</h2>
+                </div>
             );
-          }
+        } else if (this.state.page == "twinPage") {
+            return (
+                <div className="eluid89cc2067   col-sm-8    zn_sortable_content zn_content " data-droplevel={2}>
+                    <div
+                        className="kl-title-block clearfix tbk--text- tbk--left text-left tbk-symbol--line_border  tbk-icon-pos--after-title eluide93b096e ">
+                        <h3 className="tbk__title ">TWIN BRANCH (Web and Internet Technologies) </h3><span
+                        className="tbk__symbol "><span/></span>
+                        <div className="tbk__text">
+                        </div>
+                    </div>
+                    <div className="adbox video eluid56e1df16 "><img className="adbox-img"
+                                                                     src="http://41.226.11.246/wp-content/uploads/2016/07/TWIN.jpg"
+                                                                     alt title/>
+                        <div className="video_trigger_wrapper">
+                            <div className="adbox_container"><a className="playVideo" data-lightbox="iframe"
+                                                                href="https://www.youtube.com/watch?v=mbHybO2G1T0"/><h5
+                                className="adbox-title kl-font-alt">TWIN : Technologies du Web et de l’INternet </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            );
+        }
 
     }
 
@@ -210,7 +228,7 @@ class Home extends Component {
 
                             </div>
                             <span className="message-time pull-right">
-          </span>
+                        </span>
                         </div>
                     </div>
                 </div>
@@ -224,7 +242,7 @@ class Home extends Component {
                                 {message.body.msg ? message.body.msg : message.body}
                             </div>
                             <span className="message-time pull-left">
-          </span>
+                        </span>
                         </div>
                     </div>
                 </div>
@@ -262,8 +280,8 @@ class Home extends Component {
                         <div className="row reply">
 
                             <div className="col-sm-8 col-xs-8 reply-main">
-                                <textarea className="form-control" rows="2" id="comment"
-                                          onKeyUp={this.handleSubmit}></textarea>
+                        <textarea className="form-control" rows="2" id="comment"
+                                  onKeyUp={this.handleSubmit}></textarea>
                             </div>
                             <div className="col-sm-2 col-xs-2 reply-recording">
                                 <i className="fa fa-microphone fa-2x" aria-hidden="true" id="microphone-send"></i>

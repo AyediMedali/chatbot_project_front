@@ -1,10 +1,24 @@
 import React, {Component} from 'react';
 import './css/style.css';
+import {NavLink} from 'react-router-dom'
 
 class Dorm extends Component {
 
-    render() {
+    verifyConnected(){
+        if(localStorage.getItem('token') !== ''){
+            return (<div>
+                <NavLink to="/My_reservations" style={{color : '#1627a8' ,position: 'absolute', left: '950px', textDecoration : 'underline'}}>Show my reservations</NavLink>
+            </div>) ;
+        }else {
+            return(<div>
+            </div>) ;
+        }
+    }
+
+        render() {
         return (
+            <div>
+
             <div
                 className="itemContainer kl-blog-item-container kl-blog--normal-post blog-post post-7602 post type-post status-publish format-video hentry category-evenements-et-challenges category-non-classe post_format-post-format-video">
 
@@ -100,6 +114,7 @@ class Dorm extends Component {
                                      width="60%" height="auto"></img></center>
 
                     </div>
+                    {this.verifyConnected()}
 
                     <div className="itemBody kl-blog-item-body">
                         <div className="itemIntroText kl-blog-item-content">
@@ -117,16 +132,18 @@ class Dorm extends Component {
                                 70250014</a>, <a href="http://esprit.tn/category/non-classe/" rel="category tag">e-mail
                             contact@esprit.tn</a></li>
                     </ul>
+
                     <div className="itemComments kl-blog-item-comments">
-                        <a href="http://esprit.tn/en-video-le-bal-des-projets-20162017-ecole-ingenieur-tunisie/"
+                        <a href="#"
                            className="kl-blog-item-comments-link kl-font-alt">published : 2018/2019</a>
                     </div>
                 </div>
                 <div className="clear"></div>
 
-            </div>);
+            </div>
+            </div>
+        );
     }
-
 }
 
 export default Dorm

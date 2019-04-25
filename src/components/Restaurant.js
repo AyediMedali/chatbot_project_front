@@ -52,8 +52,6 @@ class Restaurant extends Component{
                 </div>
 
                 <div className="clear"></div>
-
-
             </div>);
     }
 
