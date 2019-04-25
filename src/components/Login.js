@@ -60,7 +60,6 @@ class Login extends React.Component {
                 //throw new Error("Unauthorized or wrong password")
             }
         }).then(function (responseBody) {
-            console.log(responseBody.user)
 
             localStorage.setItem('user', responseBody.user)
             localStorage.setItem('token', responseBody.token)
