@@ -74,6 +74,7 @@ class Home extends Component {
         }.bind(this))
     }
 
+
     handleSubmit = event => {
         const body = event.target.value
         console.log(body.replace(/\s/g, '').length)
@@ -87,21 +88,19 @@ class Home extends Component {
             this.setState({messages: [...this.state.messages, message]})
             this.socket.emit('chat request', body)
 
-
-            if (this.state.page == '' || this.state.page == undefined) {
-                if (localStorage.getItem('token') !== '')
-                    return <h2>Welcome to ESPRIT Chatbot,
-                        {localStorage.getItem('firstname')}</h2>
-                return <h2>Welcome to ESPRIT Chatbot</h2>
-            }
+//         if (this.state.page == '' || this.state.page == undefined) {
+            //             if (localStorage.getItem('token') !== '')
+            //                 return <h2>Welcome to ESPRIT Chatbot,
+            //                     {localStorage.getItem('firstname')}</h2>
+            //             return <h2>Welcome to ESPRIT Chatbot</h2>
+            //         }
 
 
             event.target.value = ''
 
         }
-
-
     }
+    
 
     according_to_context() {
 
