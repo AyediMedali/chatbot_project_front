@@ -171,13 +171,15 @@ class Home extends Component {
                 );
             }
         } else if (this.state.page === 'EventPage') {
+            const messages = this.state.messages;
 
             return (
                 <div>
                     <h2>Please pick your event's location</h2>
-                    <Map/>
+                    <Map eventId={messages}/>
                 </div>
             );
+
         } else if (this.state.page == 'WeatherPage') {
             return (
                 <div>
