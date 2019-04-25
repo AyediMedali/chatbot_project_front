@@ -14,14 +14,22 @@ class Dorm extends Component {
             </div>) ;
         }
     }
-
         render() {
         return (
+
             <div>
+                <div className="col-sm-6">
+                    <ul vocab="http://schema.org/" typeof="BreadcrumbList"
+                        className="breadcrumbs fixclear bread-style--black">
+                        <li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage"
+                                                                            href="http://esprit.tn">Admission</a></li>
+                        <li>Dorm and reservations</li>
+                    </ul>
+                </div>
 
-            <div
+                <div className="clear"></div>
+                <div
                 className="itemContainer kl-blog-item-container kl-blog--normal-post blog-post post-7602 post type-post status-publish format-video hentry category-evenements-et-challenges category-non-classe post_format-post-format-video">
-
 
                 <div className="itemHeader kl-blog-item-header">
                     <h3 className="catItemAuthor kl-blog-item-author"><a href="#" rel="bookmark">ESPRIT Home Hosting</a>
