@@ -9,6 +9,7 @@ import DynamicContextInternalRegulations from './DynamicContextInternalRegulatio
 import DynamicContextSkills from './DynamicContextSkills';
 import DynamicContextInternships from './DynamicContextInternships';
 import CloseEventMap from "./Events/CloseEventMap";
+import CarouselObjects from "./lostObjects/Carousel";
 
 class Home extends Component {
     constructor(props) {
@@ -234,7 +235,13 @@ class Home extends Component {
             );
 
         }
-        else if (this.state.page == 'WeatherPage') {
+        else if (this.state.page === 'LostObjects'){
+            return (<div>
+                <h2>Lost objects..</h2>
+                <CarouselObjects/>
+            </div>)
+        }
+        else if (this.state.page === 'WeatherPage') {
             return (
                 <div>
                     <h2>Weather Page..</h2>
