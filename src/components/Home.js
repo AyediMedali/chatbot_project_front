@@ -33,11 +33,11 @@ class Home extends Component {
             // console.log(response)
             // this.setState({page:response.page})
             // response.msg = response.msg.replace(/ ,/g, '\n');;
-
-            var myStr = 'this,is,a,test';
-            response.msg  = response.msg .replace(/,/g, '\n');
-          //  console.log(response.msg)
-
+          //
+          //   var myStr = 'this,is,a,test';
+          //   response.msg  = response.msg .replace(/,/g, '\n');
+          // //  console.log(response.msg)
+          //
 
             console.log(response)
             const msg = {
@@ -201,7 +201,11 @@ class Home extends Component {
 
             if (items.length == 0) {
                 return (
-                    <div>Sorry you don't have any skills yet</div>
+
+                    <div>
+                        <button>View Calendar</button>
+                        <h2>Sorry you don't have any skills yet</h2>
+                    </div>
                 );
             } else {
                 return (
