@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import socketIOClient from "socket.io-client";
 import './css/style.css';
+import { GoogleMap } from 'react-google-maps';
+import Map from "./Events/Map";
 
 class Home extends Component {
     constructor(props) {
@@ -509,11 +511,28 @@ class Home extends Component {
             );
         }
 
-        else if(this.state.page == 'SkillsPage')
-        {
+        else if (this.state.page == 'SkillsPage') {
             return (
                 <div>
                     <h2>Your skills are..</h2>
+                </div>
+            );
+        }
+        else if(this.state.page === 'EventPage')
+        {
+
+            return (
+                <div>
+                    <h2>Please pick your event's location</h2>
+                   <Map/>
+                </div>
+            );
+        }
+        else if(this.state.page == 'WeatherPage')
+        {
+            return (
+                <div>
+                    <h2>Weather Page..</h2>
                 </div>
             );
         }
