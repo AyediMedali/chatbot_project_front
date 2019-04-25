@@ -19,7 +19,9 @@ class Home extends Component {
             page: "",
             skills: [],
             best_pfe: [],
-            exams: []
+            exams: [],
+            display: 'none',
+            buttonValue:'Display Exams Calendar'
         }
 
 
@@ -112,6 +114,21 @@ class Home extends Component {
         }
     }
 
+    onClick = event => {
+     //   if(this.state.display == '') this.setState({display: 'none'})
+        if(this.state.display == 'none')
+        {
+            this.setState({display: ''})
+            this.setState({buttonValue: 'Hide Exams Calendar'})
+        }
+        else if(this.state.display == ''){
+            this.setState({display: 'none'})
+            this.setState({buttonValue: 'Display Exams Calendar'})
+        }
+
+
+    }
+
 
     according_to_context() {
 
@@ -131,11 +148,16 @@ class Home extends Component {
 
             if (items.length == 0) {
                 return (
-                    <div>Sorry you don't have any Exams</div>
+                    <div>
+                        <input type="submit" value={this.state.buttonValue} onClick={this.onClick} />
+                        Sorry you don't have any Exams
+
+                    </div>
                 );
             } else {
                 return (
                     <div id="main" className="container">
+                        <input type="submit" value={this.state.buttonValue} onClick={this.onClick} />
                         <ul>
                             {items.map(item => (
 
@@ -151,7 +173,10 @@ class Home extends Component {
                                 </li>
                             ))}
                         </ul>
-                        <DynamicContextExams/>
+                        <div style={{display:this.state.display}}>
+                            <DynamicContextExams/>
+                        </div>
+
                     </div>
 
                 );
@@ -203,7 +228,6 @@ class Home extends Component {
                 return (
 
                     <div>
-                        <button>View Calendar</button>
                         <h2>Sorry you don't have any skills yet</h2>
                     </div>
                 );
