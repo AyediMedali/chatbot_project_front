@@ -114,7 +114,7 @@ class Home extends Component {
         }
     }
 
-    onClick = event => {
+    onClickCalendar = event => {
      //   if(this.state.display == '') this.setState({display: 'none'})
         if(this.state.display == 'none')
         {
@@ -149,7 +149,7 @@ class Home extends Component {
             if (items.length == 0) {
                 return (
                     <div>
-                        <input type="submit" value={this.state.buttonValue} onClick={this.onClick} />
+                        <input type="submit" value={this.state.buttonValue} onClick={this.onClickCalendar} />
                         Sorry you don't have any Exams
 
                     </div>
@@ -157,7 +157,7 @@ class Home extends Component {
             } else {
                 return (
                     <div id="main" className="container">
-                        <input type="submit" value={this.state.buttonValue} onClick={this.onClick} />
+                        <input type="submit" value={this.state.buttonValue} onClick={this.onClickCalendar} />
                         <ul>
                             {items.map(item => (
 
