@@ -8,6 +8,7 @@ import DynamicContextExams from './DynamicContextExams';
 import DynamicContextInternalRegulations from './DynamicContextInternalRegulations';
 import DynamicContextSkills from './DynamicContextSkills';
 import DynamicContextInternships from './DynamicContextInternships';
+import CloseEventMap from "./Events/CloseEventMap";
 
 class Home extends Component {
     constructor(props) {
@@ -220,7 +221,20 @@ class Home extends Component {
                 </div>
             );
 
-        } else if (this.state.page == 'WeatherPage') {
+        }
+        else if (this.state.page === 'CloseEvent') {
+            const lat = localStorage.getItem('lat');
+            const lng = localStorage.getItem('lng');
+            const eventName = localStorage.getItem('eventName')
+            return (
+                <div>
+                    <h2>Please pick your event's location</h2>
+                    <CloseEventMap lat={lat} lng={lng} eventName={eventName}/>
+                </div>
+            );
+
+        }
+        else if (this.state.page == 'WeatherPage') {
             return (
                 <div>
                     <h2>Weather Page..</h2>
