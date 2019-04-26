@@ -15,8 +15,8 @@ class DynamicContextExams extends Component {
                                  data-droplevel="2">
                                 <div
                                     className="kl-title-block clearfix tbk--text-light tbk--center text-center tbk-symbol--  tbk-icon-pos--after-title eluid287cfbca ">
-                                    <h3 className="tbk__title "> EXAMS' CALENDAR / CONTROL SESSION 2017/2018
-                                    </h3></div>
+                                    <h3 className="tbk__title "> EXAMS' CALENDAR / CONTROL SESSION 2017/2018</h3>
+                                </div>
                             </div>
 
                         </div>

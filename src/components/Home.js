@@ -23,7 +23,7 @@ class Home extends Component {
             best_pfe: [],
             exams: [],
             display: 'none',
-            buttonValue:'Display Exams Calendar'
+            buttonValue: 'Display Exams Calendar'
         }
 
 
@@ -32,30 +32,12 @@ class Home extends Component {
     componentDidMount() {
         this.socket = socketIOClient('http://localhost:3000/');
         this.socket.on('ai response', function (response) {
-            // console.log("response")
-
-            // console.log(response)
-            // this.setState({page:response.page})
-            // response.msg = response.msg.replace(/ ,/g, '\n');;
-          //
-          //   var myStr = 'this,is,a,test';
-          //   response.msg  = response.msg .replace(/,/g, '\n');
-          // //  console.log(response.msg)
-          //
-
             console.log(response)
             const msg = {
                 body: response,
                 from: 'robot'
             }
-            // console.log(msg.body.msg + " message")
-            // console.log(msg.body.page + " page name")
-            // this.state = {messages : []}
-            // console.log(this.state)
-            //  console.log(this.state.messages)
 
-            // if(msg.body!="")
-            // {
             this.setState({messages: [...this.state.messages, msg]})
             this.setState({page: response.page})
             // }
@@ -69,15 +51,9 @@ class Home extends Component {
                     .then(res => res.json())
                     .then(res => {
                         console.log(res)
-                        // this.setState({
-                        //     message: res.msg
-                        // })
-                        // if(res.user.skills.length != 0)
-                        // {
+
                         console.log(res.user.exams)
 
-                        // const Userskills = res.user.skills.map(obj => [obj.title]);
-                        // this.setState({ skills: Userskills });
                         if (this.state.page == 'SkillsPage') {
                             this.setState({skills: res.user.skills})
                         } else if (this.state.page == 'PfePage') {
@@ -90,7 +66,6 @@ class Home extends Component {
                     });
             }
 
-            // console.log(this.state.messages)
 
         }.bind(this))
     }
@@ -109,21 +84,16 @@ class Home extends Component {
             this.socket.emit('chat request', body)
 
 
-
-
             event.target.value = ''
 
         }
     }
 
     onClickCalendar = event => {
-     //   if(this.state.display == '') this.setState({display: 'none'})
-        if(this.state.display == 'none')
-        {
+        if (this.state.display == 'none') {
             this.setState({display: ''})
             this.setState({buttonValue: 'Hide Exams Calendar'})
-        }
-        else if(this.state.display == ''){
+        } else if (this.state.display == '') {
             this.setState({display: 'none'})
             this.setState({buttonValue: 'Display Exams Calendar'})
         }
@@ -132,25 +102,25 @@ class Home extends Component {
     }
 
 
+
+
     according_to_context() {
 
 
-        if (this.state.page == '' || this.state.page == undefined)
-        {
-            if(localStorage.getItem('token') == ''){
+        if (this.state.page == '' || this.state.page == undefined) {
+            if (localStorage.getItem('token') == '') {
                 return <h2>Welcome to ESPRIT Chatbot</h2>
-            }
-            else
+            } else
                 return <h2>Welcome to ESPRIT Chatbot {localStorage.getItem('firstname')} </h2>
 
-        }
-        else if (this.state.page == 'ExamPage') {
+        } else if (this.state.page == 'ExamPage') {
 
             var items = this.state.exams;
             const btnStyle = {
                 background: '#B22222',
                 color: 'white',
             };
+            var divNumber = 0
 
             if (items.length == 0) {
                 return (
@@ -164,9 +134,8 @@ class Home extends Component {
                         >
                             {this.state.buttonValue}
                         </Button>
-                        {/*<input type="submit" value={this.state.buttonValue} onClick={this.onClickCalendar} />*/}
-                        Sorry you don't have any Exams
-
+                        <h2>Sorry you don't have any Exams
+                        </h2>
                     </div>
                 );
             } else {
@@ -184,23 +153,30 @@ class Home extends Component {
                         </Button>
 
 
-                        {/*<input type="submit" value={this.state.buttonValue} onClick={this.onClickCalendar} />*/}
-                        <ul>
+                        <div className="row" >
                             {items.map(item => (
 
-                                <li key={item._id}>
+                                    <div >
 
-                                    <br/>********* EXAM ******** <br/>
-                                    exam_type : {item.exam_type} <br/>
-                                    coef : {item.coef} <br/>
-                                    passing_date : {item.passing_date} <br/>
-                                    passing_way : {item.passing_way} <br/>
-                                    old exams : {item.url_drive} <br/>
 
-                                </li>
-                            ))}
-                        </ul>
-                        <div style={{display:this.state.display}}>
+                                        <div className="col-sm-5"  key={item._id}>
+                                            <br/>********* EXAM ******** <br/>
+                                            exam_type : {item.exam_type} <br/>
+                                            coef : {item.coef} <br/>
+                                            passing_date : {item.passing_date} <br/>
+                                            passing_way : {item.passing_way} <br/>
+
+                                        </div>
+
+                                    </div>
+
+
+                                ))}
+
+                        </div>
+
+
+                        <div style={{display: this.state.display}}>
                             <DynamicContextExams/>
                         </div>
 
@@ -208,7 +184,6 @@ class Home extends Component {
 
                 );
             }
-
 
 
         } else if (this.state.page == 'InternalRegulationsPage') {
@@ -228,19 +203,19 @@ class Home extends Component {
                         <ul>
                             {items.map(item => (
 
+
                                 <li key={item._id}>
 
                                     <br/>********* PFE ******** <br/>
                                     Entreprise : {item.entreprise} <br/>
                                     Description : {item.description} <br/>
                                     Profile request : {item.profile_request} <br/>
-                                    {/*Skills :  {item.map((it,i) => <li key={i}>it.title</li>)} <br/>*/}
-                                    {/*Skills :  {item.skills[0].title} <br/>*/}
                                     Start date : {item.start_date} <br/>
                                     End date : {item.end_date} <br/>
                                     Location : {item.location} <br/>
 
                                 </li>
+
                             ))}
                         </ul>
                     </div>
@@ -283,8 +258,7 @@ class Home extends Component {
                 </div>
             );
 
-        }
-        else if (this.state.page === 'CloseEvent') {
+        } else if (this.state.page === 'CloseEvent') {
             const lat = localStorage.getItem('lat');
             const lng = localStorage.getItem('lng');
             const eventName = localStorage.getItem('eventName')
@@ -295,14 +269,12 @@ class Home extends Component {
                 </div>
             );
 
-        }
-        else if (this.state.page === 'LostObjects'){
+        } else if (this.state.page === 'LostObjects') {
             return (<div>
                 <h2>Lost objects..</h2>
                 <CarouselObjects/>
             </div>)
-        }
-        else if (this.state.page === 'WeatherPage') {
+        } else if (this.state.page === 'WeatherPage') {
             return (
                 <div>
                     <h2>Weather Page..</h2>
