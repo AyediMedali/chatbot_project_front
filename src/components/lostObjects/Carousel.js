@@ -3,6 +3,7 @@ import {Carousel} from "react-bootstrap";
 import Map from "../Events/Map";
 
 class CarouselObjects extends React.Component {
+    objects = [];
 
     constructor(props, context) {
         super(props, context);
@@ -14,11 +15,30 @@ class CarouselObjects extends React.Component {
             direction: null,
             objects: []
         };
-
-
+        this.getLost_objects();
+        console.log(this.state.objects);
     }
 
+
     componentDidMount() {
+        var self = this;
+    }
+
+    getData() {
+        (async () => {
+            try {
+                var ob = await this.getLost_objects();
+                console.log(ob);
+            }
+            catch (e) {
+                return "error";
+            }
+        })()
+    }
+
+    async getLost_objects() {
+
+        var self = this;
         fetch('http://localhost:3000/lostOb/all', {
             method: 'GET',
             headers: {
@@ -36,7 +56,7 @@ class CarouselObjects extends React.Component {
             if (responseBody === "error")
                 console.log('error');
             else {
-                this.setState({objects: responseBody});
+                self.setState({objects: responseBody}, () => console.log(self.state.objects))
             }
 
         }).catch(function (error) {
@@ -55,66 +75,45 @@ class CarouselObjects extends React.Component {
 
     render() {
         const {index, direction} = this.state;
+        const objects = this.state.objects;
+        if (!objects) {
+            return (<div><h1>No lost objects are currently in our our Databases</h1></div>)
 
-        return (
-            <Carousel
-                activeIndex={index}
-                direction={direction}
-                onSelect={this.handleSelect}
-            >
-                {this.state.objects.map(ele =>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="http://placekitten.com/g/400/200"
-                            alt="First slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                )}
+        } else
+            return (
 
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="http://placekitten.com/g/400/200"
-                        alt="First slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="http://placekitten.com/g/400/200"
-                        alt="Third slide"
-                    />
+                <Carousel
+                    activeIndex={index}
+                    direction={direction}
+                    onSelect={this.handleSelect}
+                >
+                    {objects.map((value, index) => {
+                        return (<Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                src="http://placekitten.com/g/400/200"
+                                alt="First slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>{value.name}</h3>
+                                <p>Description : {value.description}.</p>
+                                <p>Additional info : <br></br>
+                                    <ul>
+                                        <li>Where found : {value.where_found}</li>
+                                    </ul>
 
-                    <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="http://placekitten.com/g/400/200"
-                        alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                        </p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
-        );
+                                    <ul>
+                                        <li>Where to get : {value.where_to_get}</li>
+                                    </ul>
+                                    <ul>
+                                        <li>Found  : {value.found}</li>
+                                    </ul>
+                                </p>
+                            </Carousel.Caption>
+                        </Carousel.Item>)
+                    })}
+                </Carousel>
+            );
     }
 }
 

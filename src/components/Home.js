@@ -27,7 +27,8 @@ class Home extends Component {
             best_pfe: [],
             exams: [],
             display: 'none',
-            buttonValue:'Display Exams Calendar'
+            buttonValue:'Display Exams Calendar',
+            id: ''
         }
 
 
@@ -62,6 +63,7 @@ class Home extends Component {
             // {
             this.setState({messages: [...this.state.messages, msg]})
             this.setState({page: response.page})
+            this.setState({id: response.id})
             // }
             if (this.state.page == 'SkillsPage'
                 || this.state.page == 'PfePage'
@@ -321,9 +323,9 @@ class Home extends Component {
 
         }
         else if (this.state.page === 'CloseEvent') {
-            const lat = localStorage.getItem('lat');
-            const lng = localStorage.getItem('lng');
-            const eventName = localStorage.getItem('eventName')
+            const lat = this.state.id.geolocation.lat;
+            const lng = this.state.id.geolocation.lng;
+            const eventName = this.state.id.name;
             return (
                 <div>
                     <h2>Please pick your event's location</h2>
@@ -331,6 +333,19 @@ class Home extends Component {
                 </div>
             );
 
+        }
+        else if (this.state.page === 'eventJoin') {
+            if (this.state.id){
+                const lat = this.state.id.geolocation.lat;
+                const lng = this.state.id.geolocation.lng;
+                const eventName = this.state.id.name;
+                return (
+                    <div>
+                        <h2>Please pick your event's location</h2>
+                        <CloseEventMap lat={lat} lng={lng} eventName={eventName}/>
+                    </div>
+                );
+            }
         }
         else if (this.state.page === 'LostObjects'){
             return (<div>
