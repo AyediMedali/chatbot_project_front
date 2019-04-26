@@ -37,7 +37,7 @@ class Home extends Component {
     componentDidMount() {
         this.socket = socketIOClient('http://localhost:3000/');
         this.socket.on('ai response', function (response) {
-            console.log(response)
+
             const msg = {
                 body: response,
                 from: 'robot'
@@ -56,9 +56,9 @@ class Home extends Component {
                 fetch('http://localhost:3000/get_connected_user')
                     .then(res => res.json())
                     .then(res => {
-                        console.log(res)
+                       // console.log(res)
 
-                        console.log(res.user.exams)
+                     //   console.log(res.user.exams)
 
                         if (this.state.page == 'SkillsPage') {
                             this.setState({skills: res.user.skills})
@@ -66,6 +66,7 @@ class Home extends Component {
                             this.setState({best_pfe: res.user.internships})
                         }
                         if (this.state.page == 'ExamPage') {
+                            console.log(res.user.exams)
                             this.setState({exams: res.user.exams})
                         }
 
@@ -155,7 +156,7 @@ class Home extends Component {
 
             var items = this.state.exams;
             const btnStyle = {
-                background: '#B22222',
+                background: '#ce1f0c',
                 color: 'white',
             };
             var divNumber = 0
@@ -178,6 +179,17 @@ class Home extends Component {
                 );
             } else {
 
+                var fieldsetStyle = {  'border-radius':'10px', color:"white", 'background-color':'#ce1f0c'}
+                var legendStyle = {
+                    padding: "0.2em 0.5em",
+                    // border:"1px solid green",
+                      color:"white",
+                    // 'border-radius':'5px',
+                    "font-size":"90%",
+                    'text-align':'center',
+                    'background-color':'#ce1f0c',
+                    'border-radius':'10px'
+                }
                 return (
                     <div id="main" className="container">
                         <Button
@@ -190,33 +202,103 @@ class Home extends Component {
                             {this.state.buttonValue}
                         </Button>
 
-
-                        <div className="row" >
-                            {items.map(item => (
-
-                                    <div >
-
-
-                                        <div className="col-sm-5"  key={item._id}>
-                                            <br/>********* EXAM ******** <br/>
-                                            exam_type : {item.exam_type} <br/>
-                                            coef : {item.coef} <br/>
-                                            passing_date : {item.passing_date} <br/>
-                                            passing_way : {item.passing_way} <br/>
-
-                                        </div>
-
-                                    </div>
-
-
-                                ))}
-
-                        </div>
-
-
                         <div style={{display: this.state.display}}>
                             <DynamicContextExams/>
                         </div>
+
+
+                        <div>
+                            {items.map(item => (
+
+
+                                <div className="col-sm-8"  key={item._id}>
+                                    <br/>
+
+                                    <section className="   section--no " id="eluid1e6a7716">
+                                        <div className="zn_section_size container">
+                                            <div className="row zn_columns_container zn_content " data-droplevel={1}>
+                                                <div className="eluid00a9d24a   col-md-8 col-sm-8   zn_sortable_content zn_content " data-droplevel={2}>
+                                                    <div className="action_box eluide80e654a  actionbox--light style1" data-arrowpos="center">
+                                                        <div className="action_box_inner action_box-inner">
+                                                            <div className="action_box_content action_box-content">
+                                                                <div className="ac-content-text action_box-text">
+                                                                {/*<h4 className="text action_box-title">COMPUTER SCIENCE AND COMMUNICATION: 1st and 2nd Cycle</h4>*/}
+                                                                {/*<h5 className="ac-subtitle action_box-subtitle">information and communication technologies </h5>*/}
+                                                                <ul >
+                                                                    <li className="text action_box-title" > Subject: 
+                                                                        {item.exam_subject.name}
+                                                                    </li>
+                                                                    <li className="ac-subtitle action_box-subtitle" > Exam type : {item.exam_type} </li>
+                                                                    <li className="ac-subtitle action_box-subtitle"> Coef : {item.coef}</li>
+                                                                    <li className="ac-subtitle action_box-subtitle"> Passing date : {item.passing_date} </li>
+                                                                    <li className="ac-subtitle action_box-subtitle"> Passing way : {item.passing_way} </li>
+                                                                    <li className="ac-subtitle action_box-subtitle"> Old exmas : {item.url_drive} </li>
+                                                                </ul>
+                                                                </div>
+                                                                <div className="ac-buttons action_box-buttons"><a href="http://esprit.tn/?page_id=2370" className="btn ac-btn action_box-button action_box-button-first btn-lined btn-skewed" target="_self">SHOW MORE
+                                                                </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    {/*<form action="">*/}
+                                        {/*<fieldset style={fieldsetStyle} >*/}
+                                            {/*<legend style={legendStyle}>********* EXAM ********</legend>*/}
+                                            {/*<ul style={{'margin':'10px'}}>*/}
+                                                {/*<li > Exam type : {item.exam_type} </li>*/}
+                                                {/*<li> Coef : {item.coef}</li>*/}
+                                                {/*<li> Passing date : {item.passing_date} </li>*/}
+                                                {/*<li> Passing way : {item.passing_way} </li>*/}
+                                                {/*<li> Old exmas : {item.url_drive} </li>*/}
+                                            {/*</ul>*/}
+
+                                        {/*</fieldset>*/}
+                                    {/*</form>*/}
+
+                                </div>
+
+                            ))}
+
+                        </div>
+
+
+                    {/*<div className='container'>*/}
+                        {/*<div className="row" >*/}
+                            {/*{items.map(item => (*/}
+
+
+                                {/*<div className="col-sm-8"  key={item._id}>*/}
+                                    {/*<br/>*/}
+
+
+                                    {/*<form action="">*/}
+                                        {/*<fieldset style={fieldsetStyle} >*/}
+                                            {/*<legend style={legendStyle}>********* EXAM ********</legend>*/}
+                                            {/*<ul style={{'margin':'10px'}}>*/}
+                                                {/*<li > Exam type : {item.exam_type} </li>*/}
+                                                {/*<li> Coef : {item.coef}</li>*/}
+                                                {/*<li> Passing date : {item.passing_date} </li>*/}
+                                                {/*<li> Passing way : {item.passing_way} </li>*/}
+                                                {/*<li> Old exmas : {item.url_drive} </li>*/}
+                                            {/*</ul>*/}
+
+                                        {/*</fieldset>*/}
+                                    {/*</form>*/}
+
+                                {/*</div>*/}
+
+                            {/*))}*/}
+
+                        {/*</div>*/}
+                    {/*</div>*/}
+
+
+
+
 
                     </div>
 
@@ -238,11 +320,11 @@ class Home extends Component {
             } else {
                 return (
                     <div id="main" className="container">
-                        <ul>
+                        <div className="row">
                             {items.map(item => (
 
 
-                                <li key={item._id}>
+                                <div className="col-sm-8" key={item._id}>
 
                                     <br/>********* PFE ******** <br/>
                                     Entreprise : {item.entreprise} <br/>
@@ -252,10 +334,10 @@ class Home extends Component {
                                     End date : {item.end_date} <br/>
                                     Location : {item.location} <br/>
 
-                                </li>
+                                </div>
 
                             ))}
-                        </ul>
+                        </div>
                     </div>
                 );
             }
