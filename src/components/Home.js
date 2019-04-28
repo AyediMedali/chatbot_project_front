@@ -15,6 +15,7 @@ import StudentStory from './Branches/StudentStory' ;
 import SafeRouteDecision from './Branches/SafeRouteDecision';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import Carousal from "./Clubs/Carousal";
 
 
 class Home extends Component {
@@ -363,7 +364,9 @@ class Home extends Component {
                     </div>
                 );
             }
-        } else if (this.state.page === 'EventPage') {
+        }
+
+        else if (this.state.page === 'EventPage') {
             const messages = this.state.messages;
 
             return (
@@ -372,11 +375,14 @@ class Home extends Component {
                     <Map eventId={messages}/>
                 </div>
             );
-
-        } else if (this.state.page === 'CloseEvent') {
-            const lat = localStorage.getItem('lat');
-            const lng = localStorage.getItem('lng');
-            const eventName = localStorage.getItem('eventName')
+        } else if (this.state.page === 'ClubPage') {
+            const data = this.state.id;
+            return (
+                <div>
+                    <h2>Clubs directory :</h2>
+                    <Carousal data={data}/>
+                </div>
+            )
         }
         else if (this.state.page === 'CloseEvent') {
             const lat = this.state.id.geolocation.lat;
@@ -389,7 +395,6 @@ class Home extends Component {
                 </div>
             );
 
-        } else if (this.state.page === 'LostObjects') {
         }
         else if (this.state.page === 'eventJoin') {
             if (this.state.id){
@@ -405,9 +410,10 @@ class Home extends Component {
             }
         }
         else if (this.state.page === 'LostObjects'){
+            const data = this.state.id;
             return (<div>
                 <h2>Lost objects..</h2>
-                <CarouselObjects/>
+                <CarouselObjects data={data}/>
             </div>)
         } else if (this.state.page === 'WeatherPage') {
             return (
