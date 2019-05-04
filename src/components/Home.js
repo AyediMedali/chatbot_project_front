@@ -139,7 +139,16 @@ class Home extends Component {
 
 
     }
-
+    to_date_function(date){
+        var date2 = new Date(date);
+        console.log('date ='+date);
+        console.log('date ='+date2);
+        return new Intl.DateTimeFormat('en-GB', {
+            year: 'numeric',
+            month: 'long',
+            day: '2-digit'
+        }).format(date2)
+    }
 
 
 
@@ -235,7 +244,9 @@ class Home extends Component {
                                                                     <li className="ac-subtitle action_box-subtitle"> Old exmas : {item.url_drive} </li>
                                                                 </ul>
                                                                 </div>
-                                                                <div className="ac-buttons action_box-buttons"><a href="http://esprit.tn/?page_id=2370" className="btn ac-btn action_box-button action_box-button-first btn-lined btn-skewed" target="_self">SHOW MORE
+                                                                <div className="ac-buttons action_box-buttons"><a href="#" className="btn ac-btn action_box-button action_box-button-first btn-lined btn-skewed" target="_self">
+
+                                                                    {this.to_date_function(item.passing_date)}
                                                                 </a>
                                                                 </div>
                                                             </div>
@@ -303,7 +314,8 @@ class Home extends Component {
                                                                         <li className="ac-subtitle action_box-subtitle"> Location : {item.location} </li>
                                                                     </ul>
                                                                 </div>
-                                                                <div className="ac-buttons action_box-buttons"><a href="http://esprit.tn/?page_id=2370" className="btn ac-btn action_box-button action_box-button-first btn-lined btn-skewed" target="_self">SHOW MORE
+                                                                <div className="ac-buttons action_box-buttons"><a href="#" className="btn ac-btn action_box-button action_box-button-first btn-lined btn-skewed" target="_self">
+                                                                    {item.location}
                                                                 </a>
                                                                 </div>
                                                             </div>
@@ -351,14 +363,60 @@ class Home extends Component {
             } else {
                 return (
                     <div id="main" className="container">
-                        <ul>
-                            {items.map(item => (
-                                <li key={item._id}>
-                                    title : {item.title} ;
 
-                                </li>
-                            ))}
-                        </ul>
+                        <div className="eluidf6808580   col-md-6 col-sm-6   zn_sortable_content zn_content "
+                             data-droplevel="2">
+                            <div
+                                className="services_box eluid12966c35  servicebox-sch--light element-scheme--light services_box--modern sb--hasicon">
+                                <div className="services_box__inner clearfix">
+                                    <div className="services_box__icon">
+                                        <div className="services_box__icon-inner"><span
+                                            data-zniconfam="glyphicons_halflingsregular" data-zn_icon=""
+                                            className="services_box__fonticon text-custom"></span></div>
+                                    </div>
+                                    <div className="services_box__content"><h4
+                                        className="services_box__title element-scheme__hdg1 ">Knowledge has a beginning but no end. </h4>
+                                        <div className="services_box__desc"><p>Your Skills :</p></div>
+                                        <div className="services_box__list-wrapper"><span
+                                            className="services_box__list-bg"></span>
+
+                                            <ul className="services_box__list">
+                                                {items.map(item => (
+                                                    <li key={item._id}>
+                                                        <span className="services_box__list-text">
+                                                            {item.title}
+                                                        </span>
+
+
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                            {/*<ul className="services_box__list">*/}
+                                                {/*<li className=""><span className="services_box__list-text">Créativité et compétences opérationnelles,*/}
+{/*</span></li>*/}
+                                                {/*<li className=""><span className="services_box__list-text">Qualités humaines : esprit d’équipe, communication, leadership, créativité, rigueur,*/}
+{/*</span></li>*/}
+                                                {/*<li className=""><span className="services_box__list-text">Répondre aux besoins de l’entreprise dans des filières d’avenir,*/}
+{/*</span></li>*/}
+                                                {/*<li className=""><span className="services_box__list-text">Reconnaissance internationale à travers l’accréditation EUR- ACE (délivrée par la CTI) Et par l’adhésion à la conférence des grandes école (CGE) et l’initiative CDIO + les 3 logos.</span>*/}
+                                                {/*</li>*/}
+                                            {/*</ul>*/}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        {/*<ul>*/}
+                            {/*{items.map(item => (*/}
+                                {/*<li key={item._id}>*/}
+                                    {/*title : {item.title} ;*/}
+
+                                {/*</li>*/}
+                            {/*))}*/}
+                        {/*</ul>*/}
 
                     </div>
                 );
