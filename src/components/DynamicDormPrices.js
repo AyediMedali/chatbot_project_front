@@ -13,14 +13,14 @@ class DormPrices extends Component {
 
     componentDidMount() {
 
-        fetch('http://localhost:3000/dorm/get_dorm_price/Double')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/dorm/get_dorm_price/Double')
             .then(res => res.json())
             .then(json => {
                 this.setState({
                     double_dorm_price : json
                 })
             });
-        fetch('http://localhost:3000/dorm/get_dorm_price/Triple')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/dorm/get_dorm_price/Triple')
             .then(res => res.json())
             .then(json => {
                 this.setState({

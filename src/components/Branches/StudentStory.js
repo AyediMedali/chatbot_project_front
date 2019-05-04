@@ -11,7 +11,7 @@ class StudentStory extends Component {
         
     }
     componentDidMount(){
-            fetch('http://localhost:3000/branch/testKNN')
+            fetch('https://chatbot-bug-hunters-back.herokuapp.com/branch/testKNN')
             .then(res => res.json())
             .then(json => {
                 this.setState({

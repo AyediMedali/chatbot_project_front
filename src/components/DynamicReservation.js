@@ -12,7 +12,7 @@ class Reservation extends Component {
 
     componentDidMount() {
 
-        fetch('http://localhost:3000/reservations/get_last_reservation_id2')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/reservations/get_last_reservation_id2')
             .then(res => res.json())
             .then(json => {
                 this.setState({

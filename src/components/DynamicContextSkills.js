@@ -11,7 +11,7 @@ class DynamicContextSkills extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/get_connected_user')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/get_connected_user')
             .then(res => res.json())
             .then(res => {
 console.log(res)

@@ -37,7 +37,7 @@ class CarouselObjects extends React.Component {
     async getLost_objects() {
 
         var self = this;
-        fetch('http://localhost:3000/lostOb/all', {
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/lostOb/all', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',

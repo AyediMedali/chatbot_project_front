@@ -15,21 +15,21 @@ class Restaurant extends Component{
 
     componentDidMount() {
 
-        fetch('http://localhost:3000/meals/get_price_per_semester/All inclusive')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/meals/get_price_per_semester/All inclusive')
             .then(res => res.json())
             .then(json => {
                 this.setState({
                     all_inclusive_per_semester : json
                 })
             });
-        fetch('http://localhost:3000/meals/get_price_per_semester/Half Board F1')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/meals/get_price_per_semester/Half Board F1')
             .then(res => res.json())
             .then(json => {
                 this.setState({
                     F1_per_semester : json
                 })
             });
-        fetch('http://localhost:3000/meals/get_price_per_semester/Half Board F2')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/meals/get_price_per_semester/Half Board F2')
             .then(res => res.json())
             .then(json => {
                 this.setState({

@@ -19,7 +19,7 @@ class Reservations extends Component{
 
     componentDidMount(){
 
-        fetch('http://localhost:3000/reservations/get_confirmed_reservation_by_id/'+localStorage.getItem('id'))
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/reservations/get_confirmed_reservation_by_id/'+localStorage.getItem('id'))
             .then(res => res.json())
             .then(json => {
                 this.setState({
@@ -27,7 +27,7 @@ class Reservations extends Component{
                 })
             });
 
-        fetch('http://localhost:3000/reservations/get_requested_reservation_by_id/'+localStorage.getItem('id'))
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/reservations/get_requested_reservation_by_id/'+localStorage.getItem('id'))
             .then(res => res.json())
             .then(json => {
                 this.setState({
@@ -48,7 +48,7 @@ class Reservations extends Component{
     }
 
     cancelReservation(id) {
-        fetch('http://localhost:3000/reservations/delete_reservation/'+localStorage.getItem('id')+'/'+id,{
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/reservations/delete_reservation/'+localStorage.getItem('id')+'/'+id,{
             method: 'DELETE',
             headers: {
             'Accept': 'application/json',
@@ -58,7 +58,7 @@ class Reservations extends Component{
 
             .then(res => console.log(res))
             .then(json => {
-                fetch('http://localhost:3000/reservations/get_requested_reservation_by_id/'+localStorage.getItem('id'))
+                fetch('https://chatbot-bug-hunters-back.herokuapp.com/reservations/get_requested_reservation_by_id/'+localStorage.getItem('id'))
                     .then(res => res.json())
                     .then(json => {
                         console.log(json)

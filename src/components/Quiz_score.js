@@ -14,7 +14,7 @@ class Quiz extends Component{
 
         if(localStorage.getItem('token')!=''){
 
-        fetch('http://localhost:3000/quizQ/get_quiz_score/'+ localStorage.getItem('id'))
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/quizQ/get_quiz_score/'+ localStorage.getItem('id'))
             .then(res => res.json())
             .then(json => {
                 this.setState({

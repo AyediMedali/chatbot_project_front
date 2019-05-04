@@ -15,7 +15,7 @@ class Layout extends Component {
     }
 
     initSocket = () =>{
-        const socket = socketIOClient('http://localhost:3000/');
+        const socket = socketIOClient('https://chatbot-bug-hunters-back.herokuapp.com/');
         socket.on('ai response', function(response) {
         console.log(response)
 

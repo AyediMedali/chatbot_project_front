@@ -20,7 +20,7 @@ class DormAvailabilty extends Component {
     componentDidMount(){
 
         /********************* dorms *************************/
-        fetch('http://localhost:3000/dorm/count_dorm/G/Double')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/dorm/count_dorm/G/Double')
             .then(res => res.json())
             .then(json => {
                 this.setState({
@@ -28,14 +28,14 @@ class DormAvailabilty extends Component {
                 })
             });
 
-        fetch('http://localhost:3000/dorm/count_dorm/G/Triple')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/dorm/count_dorm/G/Triple')
             .then(res => res.json())
             .then(json => {
                 this.setState({
                     count_triple_girls_dorm: json
                 })
             });
-        fetch('http://localhost:3000/dorm/count_dorm/B/Double')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/dorm/count_dorm/B/Double')
             .then(res => res.json())
             .then(json => {
                 this.setState({
@@ -43,7 +43,7 @@ class DormAvailabilty extends Component {
                 })
             });
 
-        fetch('http://localhost:3000/dorm/count_dorm/B/Triple')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/dorm/count_dorm/B/Triple')
             .then(res => res.json())
             .then(json => {
                 this.setState({
@@ -51,7 +51,7 @@ class DormAvailabilty extends Component {
                 })
             });
         /********************* Availability *********************/
-        fetch('http://localhost:3000/dorm/count_available_dorm/G/Double')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/dorm/count_available_dorm/G/Double')
             .then(res => res.json())
             .then(json => {
                 this.setState({
@@ -59,14 +59,14 @@ class DormAvailabilty extends Component {
                 })
             });
 
-        fetch('http://localhost:3000/dorm/count_available_dorm/G/Triple')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/dorm/count_available_dorm/G/Triple')
             .then(res => res.json())
             .then(json => {
                 this.setState({
                     count_triple_available_girls_dorm: json
                 })
             });
-        fetch('http://localhost:3000/dorm/count_available_dorm/B/Double')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/dorm/count_available_dorm/B/Double')
             .then(res => res.json())
             .then(json => {
                 this.setState({
@@ -74,7 +74,7 @@ class DormAvailabilty extends Component {
                 })
             });
 
-        fetch('http://localhost:3000/dorm/count_available_dorm/B/Triple')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/dorm/count_available_dorm/B/Triple')
             .then(res => res.json())
             .then(json => {
                 this.setState({

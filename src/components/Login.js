@@ -39,7 +39,7 @@ class Login extends React.Component {
         console.log(this.state.password)
         var that = this;
         event.preventDefault();
-        fetch('http://localhost:3000/login', {
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/login', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

@@ -12,7 +12,7 @@ class Logout extends Component {
         }}
 
     componentDidMount(){
-        fetch('http://localhost:3000/logout')
+        fetch('https://chatbot-bug-hunters-back.herokuapp.com/logout')
             .then(res => res.json())
             .then(res => {
                 localStorage.setItem('user', '')

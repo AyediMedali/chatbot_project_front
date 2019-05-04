@@ -45,7 +45,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        this.socket = socketIOClient('http://localhost:3000/');
+        this.socket = socketIOClient('https://chatbot-bug-hunters-back.herokuapp.com/');
         this.socket.on('ai response', function (response) {
 
             const msg = {
@@ -63,7 +63,7 @@ class Home extends Component {
 
             ) {
 
-                fetch('http://localhost:3000/get_connected_user')
+                fetch('https://chatbot-bug-hunters-back.herokuapp.com/get_connected_user')
                     .then(res => res.json())
                     .then(res => {
                        // console.log(res)
@@ -88,7 +88,7 @@ class Home extends Component {
             }
             else if (this.state.page==='quizPage'){
                 console.log(this.state.email)
-                fetch('http://localhost:3000/quizQ/get_user_score_by_mail/'+this.state.email)
+                fetch('https://chatbot-bug-hunters-back.herokuapp.com/quizQ/get_user_score_by_mail/'+this.state.email)
                     .then(res => res.json())
                     .then(res => {
                         console.log(res)
@@ -652,7 +652,7 @@ class Home extends Component {
                 return <div className="row message-body">
                     <div className="col-sm-12 message-main-receiver pull-right">
                         <div className="sender">
-                            <div class="message-text">
+                            <div className="message-text">
 
 
                                 {message.body.msg ? message.body.msg : message.body}
@@ -668,7 +668,7 @@ class Home extends Component {
                 return <div className="row message-body">
                     <div className="col-sm-12 message-main-receiver">
                         <div className="receiver">
-                            <div class="message-text">
+                            <div className="message-text">
 
                                 {message.body.msg ? message.body.msg : message.body}
                             </div>
