@@ -3,7 +3,6 @@ import {Carousel} from "react-bootstrap";
 import Map from "../Events/Map";
 
 class CarouselObjects extends React.Component {
-    objects = [];
 
     constructor(props, context) {
         super(props, context);
@@ -16,7 +15,6 @@ class CarouselObjects extends React.Component {
             objects: []
         };
         this.getLost_objects();
-        console.log(this.state.objects);
     }
 
 
@@ -76,7 +74,8 @@ class CarouselObjects extends React.Component {
     render() {
         const {index, direction} = this.state;
         const objects = this.state.objects;
-        if (!objects) {
+        const data = this.props.data;
+        if (!objects || !data) {
             return (<div><h1>No lost objects are currently in our our Databases</h1></div>)
 
         } else
@@ -87,25 +86,20 @@ class CarouselObjects extends React.Component {
                     direction={direction}
                     onSelect={this.handleSelect}
                 >
-                    {objects.map((value, index) => {
+                    {data.map((value, index) => {
                         return (<Carousel.Item>
-                            <img
+                            <img style={{height: `500px`, width: '700px'}}
                                 className="d-block w-100"
                                 src="http://placekitten.com/g/400/200"
                                 alt="First slide"
                             />
                             <Carousel.Caption>
-                                <h3>{value.name}</h3>
-                                <p>Description : {value.description}.</p>
-                                <p>Additional info : <br></br>
-                                    <ul>
+                                <h3 style={{color: 'white', backgroundColor: 'red'}}>{value.name}</h3>
+                                <p style={{color: 'white', backgroundColor: 'red'}}>Description : {value.description}.</p>
+                                <p style={{color: 'white', backgroundColor: 'red'}}>Additional info : <br></br>
+                                    <ul style={{color: 'white', backgroundColor: 'red'}}>
                                         <li>Where found : {value.where_found}</li>
-                                    </ul>
-
-                                    <ul>
                                         <li>Where to get : {value.where_to_get}</li>
-                                    </ul>
-                                    <ul>
                                         <li>Found  : {value.found}</li>
                                     </ul>
                                 </p>
