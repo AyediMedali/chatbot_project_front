@@ -14,11 +14,29 @@ class CarouselObjects extends React.Component {
             direction: null,
             objects: []
         };
-
-
+        this.getLost_objects();
     }
 
+
     componentDidMount() {
+        var self = this;
+    }
+
+    getData() {
+        (async () => {
+            try {
+                var ob = await this.getLost_objects();
+                console.log(ob);
+            }
+            catch (e) {
+                return "error";
+            }
+        })()
+    }
+
+    async getLost_objects() {
+
+        var self = this;
         fetch('http://localhost:3000/lostOb/all', {
             method: 'GET',
             headers: {
@@ -36,7 +54,7 @@ class CarouselObjects extends React.Component {
             if (responseBody === "error")
                 console.log('error');
             else {
-                this.setState({objects: responseBody});
+                self.setState({objects: responseBody}, () => console.log(self.state.objects))
             }
 
         }).catch(function (error) {
@@ -55,66 +73,41 @@ class CarouselObjects extends React.Component {
 
     render() {
         const {index, direction} = this.state;
+        const objects = this.state.objects;
+        const data = this.props.data;
+        if (!objects || !data) {
+            return (<div><h1>No lost objects are currently in our our Databases</h1></div>)
 
-        return (
-            <Carousel
-                activeIndex={index}
-                direction={direction}
-                onSelect={this.handleSelect}
-            >
-                {this.state.objects.map(ele =>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="http://placekitten.com/g/400/200"
-                            alt="First slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                )}
+        } else
+            return (
 
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="http://placekitten.com/g/400/200"
-                        alt="First slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="http://placekitten.com/g/400/200"
-                        alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="http://placekitten.com/g/400/200"
-                        alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                        </p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
-        );
+                <Carousel
+                    activeIndex={index}
+                    direction={direction}
+                    onSelect={this.handleSelect}
+                >
+                    {data.map((value, index) => {
+                        return (<Carousel.Item>
+                            <img style={{height: `500px`, width: '700px'}}
+                                className="d-block w-100"
+                                src="http://placekitten.com/g/400/200"
+                                alt="First slide"
+                            />
+                            <Carousel.Caption>
+                                <h3 style={{color: 'white', backgroundColor: 'red'}}>{value.name}</h3>
+                                <p style={{color: 'white', backgroundColor: 'red'}}>Description : {value.description}.</p>
+                                <p style={{color: 'white', backgroundColor: 'red'}}>Additional info : <br></br>
+                                    <ul style={{color: 'white', backgroundColor: 'red'}}>
+                                        <li>Where found : {value.where_found}</li>
+                                        <li>Where to get : {value.where_to_get}</li>
+                                        <li>Found  : {value.found}</li>
+                                    </ul>
+                                </p>
+                            </Carousel.Caption>
+                        </Carousel.Item>)
+                    })}
+                </Carousel>
+            );
     }
 }
 

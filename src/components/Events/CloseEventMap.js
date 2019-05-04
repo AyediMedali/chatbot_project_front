@@ -49,7 +49,7 @@ class CloseEventMap extends Component {
             >
                 <Marker
                     onClick={this.onMarkerClick}
-                    position={{lat: 36.898469, lng: 10.190354}}
+                    position={{lat: this.state.lat, lng: this.state.lng}}
                 >
                     <InfoWindow
                         marker={this.state.activeMarker}
@@ -57,7 +57,7 @@ class CloseEventMap extends Component {
                         onClose={this.onClose}
                     >
                         <div>
-                            <h4>{this.state.eventName} qsdsqsdq</h4>
+                            <h4>{this.state.eventName}</h4>
                         </div>
                     </InfoWindow>
                 </Marker> </GoogleMap>
