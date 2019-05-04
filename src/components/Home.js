@@ -10,6 +10,13 @@ import DynamicContextSkills from './DynamicContextSkills';
 import DynamicContextInternships from './DynamicContextInternships';
 import CloseEventMap from "./Events/CloseEventMap";
 import CarouselObjects from "./lostObjects/Carousel";
+import DormDetails from './DynamicDormDetails' ;
+import DormAvailability from './DynamicDormAvailabilty' ;
+import DormPrices from './DynamicDormPrices' ;
+import Reservation from './DynamicReservation' ;
+import RestaurantDetails from './DynamicRestaurantDetails';
+import RestaurantTimetable from './DynamicRestaurantTimetable' ;
+import RestaurantPrices from './DynamicRestaurantPrices';
 
 class Home extends Component {
     constructor(props) {
@@ -19,7 +26,10 @@ class Home extends Component {
             page: "",
             skills: [],
             best_pfe: [],
-            exams: []
+            exams: [],
+            reservation : [],
+            email:'',
+            score:0
         }
 
 
@@ -78,12 +88,33 @@ class Home extends Component {
 
                     });
             }
+            else if (this.state.page==='EmailPage'){
 
-            // console.log(this.state.messages)
+                    this.setState({email: response.email})
+            }
+            else if (this.state.page==='quizPage'){
+                console.log(this.state.email)
+                fetch('http://localhost:3000/quizQ/get_user_score_by_mail/'+this.state.email)
+                    .then(res => res.json())
+                    .then(res => {
+                        console.log(res)
+                        this.setState({score:res.score})
+
+                    });
+
+            }
 
         }.bind(this))
     }
-
+    update_score_color(score){
+        if(Number(score)>69){
+            return ( <div>Your quiz score is :<p style={{color : "green"}}>{score}%</p></div>)
+        }else if(Number(score)<70&&Number(score)>39){
+            return ( <div>Your quiz score is :<p style={{color : "orange"}}>{score}%</p></div>)
+        }else if(Number(score)<40){
+            return ( <div>Your quiz score is :<p style={{color : "red"}}>{score}%</p></div>)
+        }
+    }
 
     handleSubmit = event => {
         const body = event.target.value
@@ -106,7 +137,15 @@ class Home extends Component {
         }
     }
 
-
+    to_date_function(date){
+          var date2 = new Date(date);
+        return new Intl.DateTimeFormat('en-GB', {
+            year: 'numeric',
+            month: 'long',
+            day: '2-digit'
+        }).format(date2)
+        return date
+    }
     according_to_context() {
 
 
@@ -271,6 +310,53 @@ class Home extends Component {
 
 
             );
+        }
+        else if(this.state.page === 'RestaurantDetails'){
+            return(<RestaurantDetails/>);
+        }
+        else if(this.state.page === 'RestaurantMeals'){
+            return(<RestaurantTimetable/>);
+        }else if(this.state.page === 'RestaurantPrices'){
+            return(<RestaurantPrices/>) ;
+        }
+        else if(this.state.page === 'DormDetails'){
+            return(<DormDetails/>);
+        }
+        else if(this.state.page === 'DormAvailabilty'){
+            return(<DormAvailability/>) ;
+        }
+        else if(this.state.page === 'DormPrices'){
+            return(<DormPrices/>) ;
+        }
+        else if (this.state.page == 'quizPage') {
+            return <div><h2>{this.update_score_color(this.state.score)}</h2></div>
+        }
+        else if(this.state.page === 'ReservationDetails'){
+            // var items = this.state.reservation;
+            return (
+                <div>
+                    <Reservation/>
+                    {/*{this.state.reservation.start_date}*/}
+                    {/*{this.to_date_function(this.state.reservation.start_date)}*/}
+                    {/*{this.state.reservation.map(item => <div>{this.to_date_function(item.start_date)}</div>)}*/}
+
+                        {/*<ul>*/}
+                            {/*{items.map(item => (*/}
+
+                                {/*<li key={item._id}>*/}
+
+                                    {/*<br/>********* dorm ******** <br/>*/}
+                                    {/*dorm : {item.dorm.dorm_type} <br/>*/}
+
+
+                                {/*</li>*/}
+                            {/*))}*/}
+                        {/*</ul>*/}
+
+                    </div>
+
+            );
+            //return(<div>{this.state.reservation._id}</div>);
         }
 
     }

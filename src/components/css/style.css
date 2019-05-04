@@ -11,6 +11,7 @@
 
 th, td {
   border-bottom: 1px solid #ddd;
+  border: 1px solid #ddd;
   padding: 15px;
   text-align: left;
   font-size: 16px;
@@ -19,7 +20,7 @@ th, td {
 
 th {
   background-color: #ce1f0c;
-  color: white;
+  color: whitesmoke;
 }
 
 tr:nth-child(even){background-color: #f2f2f2;}

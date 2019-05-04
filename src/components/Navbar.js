@@ -18,6 +18,13 @@ class Navbar extends Component {
         }
     }
 
+    quiz_score_display(){
+        if(localStorage.getItem('token')!== ''){
+            return (<li id="menu-item-7779" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-7779  main-menu-item-sub  menu-item-odd menu-item-depth-1"><NavLink to="/Quiz_score" className=" main-menu-link main-menu-link-sub">My quiz score</NavLink></li>
+            );
+        }
+    }
+
 
     render() {
 
@@ -164,7 +171,8 @@ class Navbar extends Component {
 
                             <li id="menu-item-1906" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-1906  main-menu-item-sub  menu-item-odd menu-item-depth-1"><NavLink to="/Restaurant_and_prices" className=" main-menu-link main-menu-link-sub">Restaurant and prices</NavLink></li>
                             <li id="menu-item-7780" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-7780  main-menu-item-sub  menu-item-odd menu-item-depth-1"><NavLink to="/Dorm_and_reservations" className=" main-menu-link main-menu-link-sub">Dorm and reservations</NavLink></li>
-                            <li id="menu-item-7779" className="main-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-7779  main-menu-item-sub  menu-item-odd menu-item-depth-1"><NavLink to="/Quiz_score" className=" main-menu-link main-menu-link-sub">My quiz score</NavLink></li>
+                            {this.quiz_score_display()}
+
                         </ul>
                       </li>
                       <li id="menu-item-1915" className="main-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1915  main-menu-item-top  menu-item-even menu-item-depth-0"><a href="#" className=" main-menu-link main-menu-link-top">FORMATION</a>

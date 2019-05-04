@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './css/style.css';
+import {Button} from "react-bootstrap";
 import {NavLink} from 'react-router-dom'
 
 
@@ -12,7 +13,9 @@ class Reservations extends Component{
             confirmed_reservations: [],
             reservation_requests: []
         }
+        this.cancelReservation = this.cancelReservation.bind(this)
     }
+
 
     componentDidMount(){
 
@@ -35,6 +38,8 @@ class Reservations extends Component{
 
     to_date_function(date){
         var date2 = new Date(date);
+        console.log('date ='+date);
+        console.log('date ='+date2);
         return new Intl.DateTimeFormat('en-GB', {
             year: 'numeric',
             month: 'long',
@@ -42,7 +47,36 @@ class Reservations extends Component{
         }).format(date2)
     }
 
+    cancelReservation(id) {
+        fetch('http://localhost:3000/reservations/delete_reservation/'+localStorage.getItem('id')+'/'+id,{
+            method: 'DELETE',
+            headers: {
+            'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            })
+
+            .then(res => console.log(res))
+            .then(json => {
+                fetch('http://localhost:3000/reservations/get_requested_reservation_by_id/'+localStorage.getItem('id'))
+                    .then(res => res.json())
+                    .then(json => {
+                        console.log(json)
+                        this.setState({
+                            reservation_requests: json
+                        })
+                    });
+               console.log(json)
+            });
+
+
+    }
+
     get_reservations(reservations){
+        const btnStyle = {
+            background: '#ce1f0c',
+            color: 'white',
+        };
         if(reservations.length!==0){
             return (
                 <center>
@@ -69,13 +103,22 @@ class Reservations extends Component{
                                    href="http://esprit.tn/wp-content/uploads/2018/08/DSCN1045.jpg">
                                 <img src={require('./images/dorm_image1.jpg')}
                                      width='200px' alt="" title=""/></a></td>
-                            <td>{item.dorm.dorm_Number}</td>
+                            <td>{item.dorm.dorm_number}</td>
                             <td>{item.dorm.dorm_type}</td>
 
                         <td>{this.to_date_function(item.start_date)}</td>
                         <td>{this.to_date_function(item.end_date)}</td>
 
-                            <td><NavLink to="#">Cancel</NavLink></td>
+                            <td><Button
+
+                                variant="outline-danger"
+                                style={btnStyle}
+                                onClick={()=> this.cancelReservation(item._id)}
+                                type="submit"
+                            >
+                                Cancel
+                            </Button></td>
+
 
                         </tr>
                     ))}
@@ -97,24 +140,8 @@ class Reservations extends Component{
         }
     }
 
-    /*get_reservation_requests(){
-        if(this.state.reservation_requests.length!==0){
-            return (<div><center><ul>
-                {this.state.reservation_requests.map(item => (
-
-                    <li> {this.to_date_function(item.start_date)}  &nbsp; {this.to_date_function(item.end_date)}</li>
-
-                ))}
-            </ul></center></div>) ;
-        }else {
-            return (<div>
-                <center>You don't have any reservation requests.</center>
-            </div>) ;
-        }
-
-    }*/
-
     render() {
+
 
         //var { confirmed_reservations } = this.state ;
         return (
