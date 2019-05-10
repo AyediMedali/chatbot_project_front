@@ -14,55 +14,56 @@ class CarouselObjects extends React.Component {
             direction: null,
             objects: []
         };
-        this.getLost_objects();
+       // this.getLost_objects();
     }
 
 
     componentDidMount() {
         var self = this;
-    }
-
-    getData() {
-        (async () => {
-            try {
-                var ob = await this.getLost_objects();
-                console.log(ob);
-            }
-            catch (e) {
-                return "error";
-            }
-        })()
-    }
-
-    async getLost_objects() {
-
-        var self = this;
-        fetch('http://localhost:3000/lostOb/all', {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            }
-        }).then(function (response) {
-            if (response.ok) {
-                console.log('ok')
-                return response.json();
-            } else {
-                console.log('error');
-            }
-        }).then(function (responseBody) {
-            if (responseBody === "error")
-                console.log('error');
-            else {
-                self.setState({objects: responseBody}, () => console.log(self.state.objects))
-            }
-
-        }).catch(function (error) {
-            console.log("rejected: ", error);
-        });
-
 
     }
+
+    // getData() {
+    //     (async () => {
+    //         try {
+    //             var ob = await this.getLost_objects();
+    //             console.log(ob);
+    //         }
+    //         catch (e) {
+    //             return "error";
+    //         }
+    //     })()
+    // }
+
+    // async getLost_objects() {
+    //
+    //     var self = this;
+    //     fetch('http://localhost:3000/lostOb/all', {
+    //         method: 'GET',
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json',
+    //         }
+    //     }).then(function (response) {
+    //         if (response.ok) {
+    //             console.log('ok')
+    //             return response.json();
+    //         } else {
+    //             console.log('error');
+    //         }
+    //     }).then(function (responseBody) {
+    //         if (responseBody === "error")
+    //             console.log('error');
+    //         else {
+    //             self.setState({objects: responseBody}, () => console.log(self.state.objects))
+    //         }
+    //
+    //     }).catch(function (error) {
+    //         console.log("rejected: ", error);
+    //     });
+    //
+    //
+    // }
 
     handleSelect(selectedIndex, e) {
         this.setState({
@@ -90,8 +91,8 @@ class CarouselObjects extends React.Component {
                         return (<Carousel.Item>
                             <img style={{height: `500px`, width: '700px'}}
                                 className="d-block w-100"
-                                src="http://placekitten.com/g/400/200"
-                                alt="First slide"
+                                src={value.photo[0]}
+                                alt={value.description}
                             />
                             <Carousel.Caption>
                                 <h3 style={{color: 'white', backgroundColor: 'red'}}>{value.name}</h3>
