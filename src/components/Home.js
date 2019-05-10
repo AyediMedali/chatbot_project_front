@@ -21,6 +21,10 @@ import StudentStory from './Branches/StudentStory' ;
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import Carousal from "./Clubs/Carousal";
+import FileUpload from "./Files/FileUpload";
+import FileUploadLb from "./Files/FileUploadLb";
+import CarpoolingTable from "./Carpooling/CarpoolingTable";
+import EventsWeekTable from "./Events/EventsWeekTable";
 
 
 
@@ -414,11 +418,11 @@ class Home extends Component {
 
         else if (this.state.page === 'EventPage') {
             const messages = this.state.messages;
-
+            const event = this.state.id;
             return (
                 <div>
                     <h2>Please pick your event's location</h2>
-                    <Map eventId={messages}/>
+                    <Map eventId={event.id} />
                 </div>
             );
         } else if (this.state.page === 'ClubPage') {
@@ -431,16 +435,50 @@ class Home extends Component {
             )
         }
         else if (this.state.page === 'CloseEvent') {
+            if (this.state.id){
             const lat = this.state.id.geolocation.lat;
             const lng = this.state.id.geolocation.lng;
             const eventName = this.state.id.name;
             return (
                 <div>
-                    <h2>Please pick your event's location</h2>
+                    <h2>The closest event to you lcoation on the map</h2>
                     <CloseEventMap lat={lat} lng={lng} eventName={eventName}/>
                 </div>
             );
-
+            }else {
+                return (<div>h2>Sorry there was an error</div>)
+            }
+        }
+        else if (this.state.page === 'EventsWeek'){
+            const evs = this.state.id;
+            if (evs){
+                return (<div style={{marginLeft : 20}}>
+                    <h2>The Events available : </h2>
+                    <EventsWeekTable data={evs}/>
+                </div>)}
+            else {return(<div style={{marginLeft : 20}}>
+                <h2>The Events  available : </h2>
+                <table className="table table-striped table-dark table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Photos</th>
+                        <th scope="col">Date </th>
+                        <th scope="col">Available Places</th>
+                        <th scope="col">Organizer</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Sorry but no data is avaialable</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>)
+            }
         }
         else if (this.state.page === 'eventJoin') {
             if (this.state.id){
@@ -455,12 +493,73 @@ class Home extends Component {
                 );
             }
         }
-        else if (this.state.page === 'LostObjects'){
-            const data = this.state.id;
-            return (<div>
-                <h2>Lost objects..</h2>
-                <CarouselObjects data={data}/>
+        else if (this.state.page === 'carpoolingPage'){
+            const carps = this.state.id;
+            if (carps){
+            return (<div style={{marginLeft : 20}}>
+                    <h2>The Carpooling offers available : </h2>
+                    <CarpoolingTable data={carps}/>
+            </div>)}
+            else {return(<div style={{marginLeft : 20}}>
+                <h2>The Carpooling offers available : </h2>
+                <table className="table table-striped table-dark table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Owner</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Numero</th>
+                        <th scope="col">Available Places</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">City of depart</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Sorry but no data is avaialable</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>)
+            }
+        }
+        else if (this.state.page === 'EventImages'){
+            const messages = this.state.messages;
+            const event = this.state.id;
+            return (
+                <div>
+                    <h2>Please pick your event's location and some images</h2>
+                    <div className="eluid89cc2067   col-sm-8    zn_sortable_content zn_content " data-droplevel={2}>
+                    <Map eventId={event} />
+                    <FileUpload obj={event}/>
+                    </div>
+                </div>
+            );
+        }
+
+        else if (this.state.page === 'lostObjectPage'){
+            if (this.state.id){
+                const lb = this.state.id;
+                return (
+                    <div>
+                        <h2>Please pick some pictures for the objects</h2>
+                        <FileUploadLb obj={lb}/>
+                    </div>
+                );
+            }else
+                return (<div><h2>Sorry couldn't handle your request</h2></div>)
+        }
+        else if (this.state.page === 'LostObjects'){
+            if (this.state.id){
+                const data = this.state.id;
+                return (<div>
+                    <h2>Lost objects..</h2>
+                    <CarouselObjects data={data}/>
+                </div>)
+            }else {
+                return (<div><h2>Sorry there was no lost objects to show</h2></div>)
+            }
         } else if (this.state.page === 'WeatherPage') {
             return (
                 <div>
